@@ -7,13 +7,14 @@
     <script src="https://kit.fontawesome.com/e4339b56d6.js" crossorigin="anonymous"></script>
     <title>Quizz</title>
   </head>
-  <?php
-  include('header.php') 
-  ?>
   <body>
-  	<p id="paragraphe">Ici c est le quizz</p>
+  <div id='container'>
+    <?php include('header.php') ?>
+    <div id="content">
+      <p>Ici c est le quizz</p>
+    </div>
+    <?php include('footer.php') ?>
+
+  </div>
   </body>
-  <?php
-  include('footer.php') 
-  ?>
 </html>

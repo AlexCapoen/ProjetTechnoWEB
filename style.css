@@ -1,3 +1,109 @@
-#paragraphe{
-	color :blue;
+*{
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Montserrat",sans-serif;
+  padding :0;
+  margin:0;
 }
+
+
+/*_________________________MAIN__________________________*/
+html {
+  scroll-behavior: smooth;
+}
+body{
+  overflow: hidden; /* Hide scrollbars */
+
+}
+#container{
+	height :100vh;
+}
+header{
+	margin-top: 0;
+	height: auto;
+	width: 100%;
+	background-color : lightblue;
+}
+footer{
+	height :2.5rem;
+	width : 100%;
+	position : absolute;
+	bottom :0;
+	background-color: lightblue; 
+	position: fixed;
+}
+#content{
+	height : 85vh;
+	width : 100%;
+	overflow: auto;
+	margin-bottom :15vh;
+}
+#present_quizz{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	height : auto;
+	width : 100%;
+
+}
+.container_quizz{
+	position: relative;
+	text-align : center;
+	width : auto;
+	background-repeat: no-repeat;
+}
+.imgQuizz{
+	border : 1px solid lightblue;
+    border-radius : 35px;
+    margin-top : 2rem;
+}
+.imgQuizz {
+    height: auto; 
+    width: auto; 
+    max-width: 500px; 
+    max-height: 500px
+}
+
+.imgQuizz:hover{
+	opacity :0.55;
+}
+
+#quizzAnimalsButton:hover~#quizzAnimalsImg{
+    opacity :0.55;
+}
+
+#quizzHistoryButton:hover~#quizzHistoryImg{
+    opacity :0.55;
+}
+.button{
+	position : absolute;
+    top :45%;
+    left :28%;
+	background-color : lightblue;
+	height: auto;
+	widows: auto;
+	font-size: 1.75rem;
+    padding: 16px 32px;
+    opacity :0;
+}
+#quizzAnimalsImg:hover~#quizzAnimalsButton{
+    opacity :1;
+}
+
+#quizzHistoryImg:hover~#quizzHistoryButton{
+    opacity :1;
+}
+.button:hover{
+    
+    opacity :1;
+}
+a.link{
+	text-decoration: none;
+	color : white;
+}
+a.navlink{
+	text-decoration: none;
+	color : black;
+}
+
+
