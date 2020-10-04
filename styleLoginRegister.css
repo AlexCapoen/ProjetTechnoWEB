@@ -55,5 +55,12 @@ body{
 }
 
 input[type=text], input[type=password] {
-	border=none;
+	border : none;
+}
+
+a{
+	font-size:1rem;
+}
+.inputForm{
+	font-size : 1rem;
 }
