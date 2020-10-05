@@ -13,6 +13,7 @@
     <?php include('header.php') ?>
     <div id="content">
       <p id="presentation">NEW QUIZZS AVAILABLE </p>
+        
       <div id="present_quizz">
         <div class="container_quizz" >
           <img src="Img/quizzAnimals.png" id="quizzAnimalsImg" class="imgQuizz">
@@ -23,6 +24,7 @@
           <a class="link button notAvailable" id="quizzHistoryButton" href="quizz2.php">Start Quizz</a>
         </div>
       </div>
+        
     </div>
     <?php include('footer.php') ?>
   </div>
