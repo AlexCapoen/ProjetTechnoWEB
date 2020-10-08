@@ -22,20 +22,17 @@ body{
 
 
 #content{
-	height : 85vh;
+	height: 75vh;
 	width : 100%;
 	overflow: auto;
-	margin-bottom :15vh;
 }
 #present_quizz{
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
+	align-items:center;
 	height : auto;
 	width : 100%;
-	display: flex;
-    flex-wrap: wrap;
-    align-items:center;
 
 }
 .container_quizz{
@@ -102,9 +99,11 @@ a.navlink{
 
 /*_________________________HEADER__________________________*/
 header{
-
+	margin-top: 0;
+	padding :0;
 }
 #headerContainer{
+
 	position :relative;
 	height: 15vh;
 	width: 100%;
@@ -121,7 +120,6 @@ header{
 	letter-spacing: 5px;
 	font-weight: 600;
 	font-size: 2.25rem;
-	margin-top: 1vh;
 }
 #headerContent .navlink{
 	color :white;
@@ -209,7 +207,7 @@ header{
 /*_________________________FOOTER__________________________*/
 
 footer{
-	height :4rem;
+	height :7vh;
 	width : 100%;
 	position : absolute;
 	bottom :0;
