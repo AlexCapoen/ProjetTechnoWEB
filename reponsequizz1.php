@@ -8,47 +8,50 @@
     <title>Quizz</title>
   </head>
   <body>
-  <div id='container'>
-    <?php include('header.php') ?>
-    <div id="content">
-       <div id>
-         <img src="Img/requinrenard.png" id="requinrenard" class="imgQuizz1">
+  <?php include('header.php') ?>
+  <div id="content">
+      <div class="question1">
+         <img src="Img/requinrenard.png" id="requinrenard" class="imgQuizz1"></br>
+         <label class="questionq1"><span class="textquestionq1">Comment s'appelle cette espéce de requin?</span></label>
          <br>
-         <label for="name">quel est le nom de ce requin?</label>
+         <label class=reponse1q1>-le requin renard</label>
+      </div>
+      <div class="question2">
+         <img src="Img/araignee2.png" id="araignee" class="imgQuizz1"></br>
+         <label class="questionq1"><span class="textquestionq1">combien d'yeux peuvent avoir les araignées?</span></label>
          <br>
-         <label for="name">-le requin renard</label>
-       </div>
-       <div>
-         <img src="Img/araignee2.png" id="araignee" class="imgQuizz1">
-         <br>
-         <label for="name">combien d'yeux peuvent avoir les araignées?</label>
-         <br>
-         <label for="name">-4</label>
-         <input type="checkbox" name="reponse2a" value="1" checked>
-         <br>
-         <label for="name">-6</label>
-         <input type="checkbox" name="reponse2a" value="1" checked>
-         <br>
-         <label for="name">-8</label>
-         <input type="checkbox" name="reponse2b" value="1" checked>
-         <br>
-         <label for="name">-10</label>
-         <input type="checkbox" name="reponse2c" value="1" checked>
-         <br>
-         <label for="name">-12</label>
-         <input type="checkbox" name="reponse2d" value="1" checked>
-     </div>
+         <input class=reponse1q1 type="checkbox" name="reponse2a" checked>
+         <label>-4</label><br>
+         <input class=reponse1q1 type="checkbox" name="reponse2b" checked>
+         <label>-6</label><br>
+         <input class=reponse1q1 type="checkbox" name="reponse2c" checked>
+         <label>-8</label><br>
+         <input class=reponse1q1 type="checkbox" name="reponse2d" checked>
+         <label>-10</label><br>
+         <input class=reponse1q1 type="checkbox" name="reponse2e" checked>
+         <label>-12</label><br>
+      </div>
+      <div class="question3">
+       <img src="Img/rhin.png" id="requinrenard" class="imgQuizz1"></br>
+       <label class="questionq1"><span class="textquestionq1">Combien de rhinoceros reste-il en vie?</span></label><br>
+       <label class=reponse1q1>-29 500</label>
      <div>
-       <img src="Img/rhin.png" id="requinrenard" class="imgQuizz1">
-       <form action="/action_page.php">
-         <label for="fname">Combien de rhinoceros reste-il?</label><br>
-         <label for="fname">29 500</label><br>
-     </div>
-     <div>
-       <a class="ok" href="main.php">Home</a>
+      <div id="question4quizz1">
+         <img src="Img/moustique.jpg" id="moustique" class="imgQuizz1"></br>
+         <label class="questionq1"><span class="textquestionq1">de combien de mort son responsable les moustiques chaque année</span> </label>
+         <br>
+         <input type="radio" name="reponse4" value="1" class=reponse1q1>
+         <label>-1 000 000</label><br>
+         <input type="radio" name="reponse4" value="1" class=reponse1q1 checked>
+         <label>-750 000</label><br>
+         <input type="radio" name="reponse4" value="1" class=reponse1q1>
+         <label>-500 000</label><br>
+         <input type="radio" name="reponse4" value="1" class=reponse1q1>
+         <label>-250 000</label><br>
+      </div>  
+       <a class='validcontainer' href="main.php">HOME</a>
      </div>
     <?php include('footer.php') ?>
-
   </div>
   </body>
 </html>
