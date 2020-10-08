@@ -18,25 +18,25 @@
 
         <div id='question1_quizz2' class='questionQuizz2'>
           <form action="" method="post">
-    
+
             <p class='titreQuestion'>Question 1 : Quel était le surnom de Louis XIV ?</p>
             <input type="radio" name="radio" class="radio"> <label for="radio">Le roi des rats</label> <br/>
             <input type="radio" name="radio" class="radio"> <label for="radio">Le roi Soleil</label><br/>
             <input type="radio" name="radio" class="radio"> <label for="radio">Le roi FullStack</label><br/>
             <input type="radio" name="radio" class="radio"> <label for="radio">L'ami des bêtes</label><br/>
-    
+
           </form>
         </div>
 
         <div id= 'question2_quizz2' class='questionQuizz2'>
           <form action="" method="post">
-    
+
             <p class='titreQuestion'>Question 2 : Quel est l'évènement déclencheur de la 1ère guerre mondiale ?</p>
             <input type="radio" name="radio" class="radio"> <label for="radio">Les conflits dans les balkans </label> <br/>
             <input type="radio" name="radio" class="radio"> <label for="radio">La France veut reconquérir l'Alsace et la Lorraine</label><br/>
             <input type="radio" name="radio" class="radio"> <label for="radio">Un dérapage de l'empereur allemand sur les réseaux sociaux</label><br/>
             <input type="radio" name="radio" class="radio"> <label for="radio">L'assassinat de l'archiduc François Ferdinand a Sarajevo</label><br/>
-    
+
           </form>
         </div>
 
@@ -79,11 +79,11 @@
       </div>
 
       <div id='boutonSubmit'>
-        <a href="answerquizz2.php"> <input type="button" value="Submit"> </a>
+        <a href="answerquizz2.php"> <input type="button" value="Submit" class="buttonSubmit"> </a>
       </div>
 
     </div>
-    
+
     <?php include('footer.php') ?>
 
   </div>

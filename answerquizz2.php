@@ -18,19 +18,19 @@
 
         <div id='question1_quizz2' class='questionQuizz2'>
           <form action="" method="post">
-    
+
             <p class='titreQuestion'>Question 1 : Quel était le surnom de Louis XIV ?</p>
             <input type="radio" name="radio" class="radio" checked> <label for="radio">Le roi Soleil</label><br/>
-    
+
           </form>
         </div>
 
         <div id= 'question2_quizz2' class='questionQuizz2'>
           <form action="" method="post">
-    
+
             <p class='titreQuestion'>Question 2 : Quel est l'évènement déclencheur de la 1ère guerre mondiale ?</p>
             <input type="radio" name="radio" class="radio" checked> <label for="radio">L'assassinat de l'archiduc François Ferdinand a Sarajevo</label><br/>
-    
+
           </form>
         </div>
 
@@ -64,18 +64,18 @@
             <input type="checkbox" id="rep5" name="rep5" checked>
             <label for="rep5"> Etats-unis</label>
           </div>
-          <div>
-            <input type="checkbox" id="rep6" name="rep6">
-            <label for="rep6">Le Vatican</label>
+            <div>
+              <input type="checkbox" id="rep6" name="rep6">
+              <label for="rep6">Le Vatican</label>
+            </div>
           </div>
         </div>
+      <div id="validcontainer">
+        <a class='validcontainer' href="main.php">HOME</a>
       </div>
-
-      <a class='validcontainer' href="main.php">HOME</a>
     </div>
-    
-    <?php include('footer.php') ?>
 
+    <?php include('footer.php') ?>
   </div>
   </body>
 </html>

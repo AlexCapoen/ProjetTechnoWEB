@@ -48,9 +48,11 @@
          <label>-500 000</label><br>
          <input type="radio" name="reponse4" value="1" class=reponse1q1>
          <label>-250 000</label><br>
-      </div>  
+      </div>
+      <div id="validcontainer">
        <a class='validcontainer' href="main.php">HOME</a>
-     </div>
+      </div>
+   </div>
     <?php include('footer.php') ?>
   </div>
   </body>
