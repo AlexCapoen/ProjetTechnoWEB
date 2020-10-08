@@ -45,8 +45,6 @@ body{
 	border : 1px solid lightblue;
     border-radius : 35px;
     margin-top : 2rem;
-}
-.imgQuizz {
     height: auto;
     width: auto;
     max-width: 500px;
@@ -58,13 +56,6 @@ body{
 	transition:0.5s;
 }
 
-#quizzAnimalsButton:hover~#quizzAnimalsImg{
-    opacity :0.55;
-}
-
-#quizzHistoryButton:hover~#quizzHistoryImg{
-    opacity :0.55;
-}
 .button{
 	position : absolute;
     top :45%;
@@ -96,7 +87,9 @@ a.link{
 a.navlink{
 	text-decoration: none;
 }
-
+.Opacity{
+	opacity: 0.55;
+}
 
 /*_________________________HEADER__________________________*/
 header{
@@ -241,6 +234,9 @@ footer{
 	padding  : 5px;
 	background-color: white;
 }
+
+
+
 .imgQuizz1{
 	border : 1px solid lightblue;
     border-radius : 10px;
