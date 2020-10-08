@@ -11,66 +11,76 @@
   <div id='container'>
     <?php include('header.php') ?>
     <div id="content">
-      <p>Ici c est le quizz Histoire(je crois)</p>
-      <form action="" method="post">
-  <fieldset>
-    <legend>Question 1 : Quel était le surnom de Louis XIV ?</legend>
-    <input type="radio" name="radio" id="radio"> <label for="radio">Le roi des rats</label> <br/>
-    <input type="radio" name="radio" id="radio"> <label for="radio">Le roi Soleil</label><br/>
-    <input type="radio" name="radio" id="radio"> <label for="radio">Le roi FullStack</label><br/>
-    <input type="radio" name="radio" id="radio"> <label for="radio">L'ami des bêtes</label><br/>
-  </fieldset>
-</form>
-<form action="" method="post">
-  <fieldset>
-    <legend>Question 2 : Quel est l'évènement déclencheur de la 1ère guerre mondiale ?</legend>
-    <input type="radio" name="radio" id="radio"> <label for="radio">Les conflits dans les balkans </label> <br/>
-    <input type="radio" name="radio" id="radio"> <label for="radio">La France veut reconquérir l'Alsace et la Lorraine</label><br/>
-    <input type="radio" name="radio" id="radio"> <label for="radio">Un dérapage de l'empereur allemand sur les réseaux sociaux</label><br/>
-    <input type="radio" name="radio" id="radio"> <label for="radio">L'assassinat de l'archiduc François Ferdinand a Sarajevo</label><br/>
-  </fieldset>
-</form>
-<form action="" method="get">
-  <label for="GET-name">Question 3 : En quelle année c'est déroulée la bataille de Marignan ?</label>
-  <input id="GET-name" type="number" name="name">
-  <input type="submit" value="Enregistrer">
-</form>
-<fieldset>
-<p>Question 4 : Parmi ces pays lesquels sont considérés comme vainqueur de la 2nd guerre mondiale</p>
-<div>
-  <input type="checkbox" id="rep1" name="rep1">
-  <label for="rep1">Royaume-Uni</label>
-</div>
+      <div id='titrePage'>
+        <h2>Quizz Histoire de France</h2>
+      </div>
+      <div id='questionContent'>
 
-<div>
-  <input type="checkbox" id="rep2" name="rep2">
-  <label for="rep2">Italie</label>
-</div>
-<div>
-  <input type="checkbox" id="rep3" name="rep3">
-  <label for="rep3">Japon</label>
-</div>
-<div>
-  <input type="checkbox" id="rep4" name="rep4">
-  <label for="rep4">France</label>
-</div>
-<div>
-  <input type="checkbox" id="rep5" name="rep5">
-  <label for="rep5"> Etats-unis</label>
-</div>
-<div>
-  <input type="checkbox" id="rep6" name="rep6">
-  <label for="rep6">Le Vatican</label>
-</div>
-</fieldset>
+        <div id='question1_quizz2' class='questionQuizz2'>
+          <form action="" method="post">
+    
+            <p class='titreQuestion'>Question 1 : Quel était le surnom de Louis XIV ?</p>
+            <input type="radio" name="radio" class="radio"> <label for="radio">Le roi des rats</label> <br/>
+            <input type="radio" name="radio" class="radio"> <label for="radio">Le roi Soleil</label><br/>
+            <input type="radio" name="radio" class="radio"> <label for="radio">Le roi FullStack</label><br/>
+            <input type="radio" name="radio" class="radio"> <label for="radio">L'ami des bêtes</label><br/>
+    
+          </form>
+        </div>
 
+        <div id= 'question2_quizz2' class='questionQuizz2'>
+          <form action="" method="post">
+    
+            <p class='titreQuestion'>Question 2 : Quel est l'évènement déclencheur de la 1ère guerre mondiale ?</p>
+            <input type="radio" name="radio" class="radio"> <label for="radio">Les conflits dans les balkans </label> <br/>
+            <input type="radio" name="radio" class="radio"> <label for="radio">La France veut reconquérir l'Alsace et la Lorraine</label><br/>
+            <input type="radio" name="radio" class="radio"> <label for="radio">Un dérapage de l'empereur allemand sur les réseaux sociaux</label><br/>
+            <input type="radio" name="radio" class="radio"> <label for="radio">L'assassinat de l'archiduc François Ferdinand a Sarajevo</label><br/>
+    
+          </form>
+        </div>
 
+        <div id='question3_quizz2' class='questionQuizz2'>
+          <form action="" method="get">
+            <label class='titreQuestion' for="GET-name">Question 3 : En quelle année s'est déroulée la bataille de Marignan ?</label>
+            <input id="GET-name" type="number" name="name">
+            <input type="submit" value="Enregistrer">
+          </form>
+        </div>
 
+        <div id='question4_quizz2' class='questionQuizz2'>
+          <p class='titreQuestion'>Question 4 : Parmi ces pays lesquels sont considérés comme vainqueur de la 2nd guerre mondiale :</p>
+          <div>
+            <input type="checkbox" id="rep1" name="rep1">
+            <label for="rep1">Royaume-Uni</label>
+          </div>
 
+          <div>
+            <input type="checkbox" id="rep2" name="rep2">
+            <label for="rep2">Italie</label>
+          </div>
+          <div>
+            <input type="checkbox" id="rep3" name="rep3">
+            <label for="rep3">Japon</label>
+          </div>
+          <div>
+            <input type="checkbox" id="rep4" name="rep4">
+            <label for="rep4">France</label>
+          </div>
+          <div>
+            <input type="checkbox" id="rep5" name="rep5">
+            <label for="rep5"> Etats-unis</label>
+          </div>
+          <div>
+            <input type="checkbox" id="rep6" name="rep6">
+            <label for="rep6">Le Vatican</label>
+          </div>
+        </div>
+      </div>
 
-
-
-<a href="answerquizz2.php" target="_blank"> <input type="button" value="Submit"> </a>
+      <div id='boutonSubmit'>
+        <a href="answerquizz2.php"> <input type="button" value="Submit"> </a>
+      </div>
 
     </div>
     
