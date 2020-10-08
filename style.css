@@ -91,6 +91,7 @@ body{
 a.link{
 	text-decoration: none;
 	color : white;
+	text-underline-position: 1; 
 }
 a.navlink{
 	text-decoration: none;
@@ -251,7 +252,7 @@ footer{
     max-width: 500px;
     max-height: 500px
 }
-.imgQuizz1:hover{
-	opacity :0.55;
-	transition:0.5s;
+.questionq1{
+	color:white;
+	background-color:black;
 }
