@@ -234,12 +234,11 @@ footer{
 	background-color: white;
 }
 
-
+/*_________________________QUIZZ 1__________________________*/
 
 .imgQuizz1{
 	border : 1px solid lightblue;
     border-radius : 35px;
-    margin-top : 2rem;
 }
 .imgQuizz1 {
     height: auto;
@@ -255,15 +254,48 @@ footer{
 	color:white;
 	background-color:grey;
 	border-radius:  10px;
-	margin-left: 2rem;
+	margin: 2rem;
+	margin-top: 8rem;
+	font-size: 1.25rem;
+	font-weight: bold;
+
+}
+.questionquizz1{
+	display: flex;
+	background-color: grey;
+	margin: 2rem;
+	border-radius: 35px;
+}
+.reponseq1{
+	background-color:white;
+	color:black;
+	margin-top: 6rem;
+	margin-bottom: 9rem;
+	border-radius: 7px;
+	border : 1px solid black;
+}
+#reponse4q1{
+	background-color:white;
+	color:black;
+	margin-top: 6rem;
+	margin-bottom: 11rem;
+	border-radius: 7px;
+	border : 1px solid black;
+}
+
 }
 .textquestionq1{
 	margin:15px;
+	color:white;
 }
+.textquestionq1{
+	margin:15px;
+	color:black;}
 .reponse1q1{
-	margin-left: 2.5rem;
-}
+	margin-top: 8.4rem;
+	margin-bottom: 8rem;
 
+}
 #validcontainer{
   display: flex;
   justify-content: center;
@@ -346,3 +378,5 @@ footer{
   font-weight: bold;
   transition: 2s;
 }
+
+

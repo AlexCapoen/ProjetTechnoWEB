@@ -12,7 +12,6 @@
   		<div id="formLogin">
 		  	<form action="" class="container">
 		    <h1>Login</h1>
-
 		    <label  for="email"><b class="itemLogin">Email</b></label>
 		    </br>
 		    <input type="text" placeholder="Enter Email" name="email" required>

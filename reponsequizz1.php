@@ -8,51 +8,54 @@
     <title>Quizz</title>
   </head>
   <body>
-  <?php include('header.php') ?>
+<?php include('header.php') ?>
   <div id="content">
-      <div class="question1">
+      <div class="questionquizz1">
          <img src="Img/requinrenard.png" id="requinrenard" class="imgQuizz1"></br>
          <label class="questionq1"><span class="textquestionq1">Comment s'appelle cette espéce de requin?</span></label>
-         <br>
-         <label class=reponse1q1>-le requin renard</label>
+            <label class="reponseq1"><span class="textquestionq1">-Le Requin renard</span></label>
       </div>
-      <div class="question2">
+      <div class="questionquizz1">
          <img src="Img/araignee2.png" id="araignee" class="imgQuizz1"></br>
          <label class="questionq1"><span class="textquestionq1">combien d'yeux peuvent avoir les araignées?</span></label>
-         <br>
-         <input class=reponse1q1 type="checkbox" name="reponse2a" checked>
-         <label>-4</label><br>
-         <input class=reponse1q1 type="checkbox" name="reponse2b" checked>
-         <label>-6</label><br>
-         <input class=reponse1q1 type="checkbox" name="reponse2c" checked>
-         <label>-8</label><br>
-         <input class=reponse1q1 type="checkbox" name="reponse2d" checked>
-         <label>-10</label><br>
-         <input class=reponse1q1 type="checkbox" name="reponse2e" checked>
-         <label>-12</label><br>
+         <div class="reponseq1">  
+            <input type="checkbox" name="reponse2a" checked>
+            <label><span class="textquestionq1">-4</span></label><br>
+            <input type="checkbox" name="reponse2b" checked>
+            <label><span class="textquestionq1">-6</span></label><br>
+            <input type="checkbox" name="reponse2c" checked>
+            <label><span class="textquestionq1">-8</span></label><br>
+            <input type="checkbox" name="reponse2d" checked>
+            <label><span class="textquestionq1">-10</span></label><br>
+            <input type="checkbox" name="reponse2e" checked>
+            <label><span class="textquestionq1">-12</span></label>
+          </div>
       </div>
-      <div class="question3">
+      <div class="questionquizz1">
        <img src="Img/rhin.png" id="requinrenard" class="imgQuizz1"></br>
        <label class="questionq1"><span class="textquestionq1">Combien de rhinoceros reste-il en vie?</span></label><br>
-       <label class=reponse1q1>-29 500</label>
-     <div>
-      <div id="question4quizz1">
-         <img src="Img/moustique.jpg" id="moustique" class="imgQuizz1"></br>
-         <label class="questionq1"><span class="textquestionq1">de combien de mort son responsable les moustiques chaque année</span> </label>
+        <form>
+         <label class="reponseq1"><span class="textquestionq1">-29 500</span></label><br>
          <br>
-         <input type="radio" name="reponse4" value="1" class=reponse1q1>
-         <label>-1 000 000</label><br>
-         <input type="radio" name="reponse4" value="1" class=reponse1q1 checked>
-         <label>-750 000</label><br>
-         <input type="radio" name="reponse4" value="1" class=reponse1q1>
-         <label>-500 000</label><br>
-         <input type="radio" name="reponse4" value="1" class=reponse1q1>
-         <label>-250 000</label><br>
+        </form>
       </div>
-      <div id="validcontainer">
-       <a class='validcontainer' href="main.php">HOME</a>
-      </div>
-   </div>
+      <div class="questionquizz1">
+        <img src="Img/moustique.jpg" id="moustique" class="imgQuizz1"></br>
+        <label class="questionq1"><span class="textquestionq1">De combien de mort son responsable les moustiques chaque année</span> </label>
+        <div id="reponse4q1">
+           <input type="radio" name="reponse4" value="1">
+           <label>-900 000</label><br>
+           <input type="radio" name="reponse4" value="1" checked>
+           <label>-750 000</label><br>
+           <input type="radio" name="reponse4" value="1">
+           <label>-500 000</label><br>
+           <input type="radio" name="reponse4" value="1">
+           <label>-250 000</label><br>
+         </div>
+      </div>      
+     <div>
+       <a class='validcontainer' href="main.php">Home</a>
+     </div>
     <?php include('footer.php') ?>
   </div>
   </body>
