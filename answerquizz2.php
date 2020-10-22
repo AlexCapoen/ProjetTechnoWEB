@@ -16,7 +16,7 @@
       </div>
       <div id='questionContent'>
 
-        <div id='question1_quizz2' class='questionQuizz2'>
+        <div id='question1_quizz2' class='questionQuizz'>
           <form action="" method="post">
 
             <p class='titreQuestion'>Question 1 : Quel était le surnom de Louis XIV ?</p>
@@ -25,7 +25,7 @@
           </form>
         </div>
 
-        <div id= 'question2_quizz2' class='questionQuizz2'>
+        <div id= 'question2_quizz2' class='questionQuizz'>
           <form action="" method="post">
 
             <p class='titreQuestion'>Question 2 : Quel est l'évènement déclencheur de la 1ère guerre mondiale ?</p>
@@ -34,14 +34,14 @@
           </form>
         </div>
 
-        <div id='question3_quizz2' class='questionQuizz2'>
+        <div id='question3_quizz2' class='questionQuizz'>
           <form action="" method="get">
             <label class='titreQuestion' for="GET-name">Question 3 : En quelle année s'est déroulée la bataille de Marignan ?</label>
             <p>1515</p>
           </form>
         </div>
 
-        <div id='question4_quizz2' class='questionQuizz2'>
+        <div id='question4_quizz2' class='questionQuizz'>
           <p class='titreQuestion'>Question 4 : Parmi ces pays lesquels sont considérés comme vainqueur de la 2nd guerre mondiale :</p>
           <div>
             <input type="checkbox" id="rep1" name="rep1" checked>
