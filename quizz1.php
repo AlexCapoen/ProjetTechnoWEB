@@ -65,7 +65,7 @@
         <div id= 'question2_quizz1' class='questionQuizz'>
           <form action="" method="post">
 
-            <p class='titreQuestion'>Question  : Combien de mort son responsable les moustiques chaque année ?</p>
+            <p class='titreQuestion'>Question 4 : Combien de mort son responsable les moustiques chaque année ?</p>
             <input type="radio" name="radio" class="radio"> <label for="radio">250 000</label> <br/>
             <input type="radio" name="radio" class="radio"> <label for="radio">500 000</label><br/>
             <input type="radio" name="radio" class="radio"> <label for="radio">750 000</label><br/>
@@ -76,7 +76,7 @@
         
 
       <div class='boutonSubmit'>
-        <a href="answerquizz2.php"> <input type="button" value="Submit" class="buttonSubmit"> </a>
+        <a href="reponsequizz1.php"> <input type="button" value="Submit" class="buttonSubmit"> </a>
       </div>
 
     </div>

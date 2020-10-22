@@ -8,54 +8,66 @@
     <title>Quizz</title>
   </head>
   <body>
-<?php include('header.php') ?>
-  <div id="content">
-      <div class="questionquizz1">
-         <img src="Img/requinrenard.png" id="requinrenard" class="imgQuizz1"></br>
-         <label class="questionq1"><span class="textquestionq1">Comment s'appelle cette espéce de requin?</span></label>
-            <label class="reponseq1"><span class="textquestionq1">-Le Requin renard</span></label>
+  <div id='container'>
+    <?php include('header.php') ?>
+    <div id="content">
+      <div id='titrePage'>
+        <h2> Reponse quizz Animal</h2>
       </div>
-      <div class="questionquizz1">
-         <img src="Img/araignee2.png" id="araignee" class="imgQuizz1"></br>
-         <label class="questionq1"><span class="textquestionq1">combien d'yeux peuvent avoir les araignées?</span></label>
-         <div class="reponseq1">  
-            <input type="checkbox" name="reponse2a" checked>
-            <label><span class="textquestionq1">-4</span></label><br>
-            <input type="checkbox" name="reponse2b" checked>
-            <label><span class="textquestionq1">-6</span></label><br>
-            <input type="checkbox" name="reponse2c" checked>
-            <label><span class="textquestionq1">-8</span></label><br>
-            <input type="checkbox" name="reponse2d" checked>
-            <label><span class="textquestionq1">-10</span></label><br>
-            <input type="checkbox" name="reponse2e" checked>
-            <label><span class="textquestionq1">-12</span></label>
+      <div id='questionContent'>
+
+        <div id='question1_quizz2' class='questionQuizz'>
+          <form action="" method="post">
+
+            <p class='titreQuestion'>Question 1 : Quel espece de requin a la plus longue queue ?</p>
+            <input type="radio" name="radio" class="radio" checked> <label for="radio">Le requin renard</label><br/>
+
+          </form>
+        </div>
+
+        <div id= 'question2_quizz2' class='questionQuizz'>
+          <p class='titreQuestion'>Question 2 : Combien d'yeux peuvent avoir les araignées :</p>
+          <div>
+            <input type="checkbox" id="rep1q1" name="rep1"checked>
+            <label for="rep1q1">4</label>
           </div>
+
+          <div>
+            <input type="checkbox" id="rep2q1" name="rep2" checked>
+            <label for="rep2q1">6</label>
+          </div>
+          <div>
+            <input type="checkbox" id="rep3q1" name="rep3"checked>
+            <label for="rep3q1">8</label>
+          </div>
+          <div>
+            <input type="checkbox" id="rep4q1" name="rep4"checked>
+            <label for="rep4q1">10</label>
+          </div>
+          <div>
+            <input type="checkbox" id="rep5q1" name="rep5"checked>
+            <label for="rep5q1"> 12</label>
+          </div>
+        </div>
+
+        </div>
+
+        <div id='question3_quizz2' class='questionQuizz'>
+          <form action="" method="get">
+            <label class='titreQuestion' for="GET-name">Question 3 : Combien de rhinocéros reste-il en vie ?</label>
+            <p>29 500</p>
+          </form>
+        </div>
+
+        <div id='question4_quizz2' class='questionQuizz'>
+          <p class='titreQuestion'>Question 4 : Combien de mort son responsable les moustiques chaque année ?</p>
+          <input type="radio" name="radio" class="radio" checked> <label for="radio">750 000</label><br/>
+        </div>
+      <div id="validcontainer">
+        <a class='validcontainer' href="main.php">HOME</a>
       </div>
-      <div class="questionquizz1">
-       <img src="Img/rhin.png" id="requinrenard" class="imgQuizz1"></br>
-       <label class="questionq1"><span class="textquestionq1">Combien de rhinoceros reste-il en vie?</span></label><br>
-        <form>
-         <label class="reponseq1"><span class="textquestionq1">-29 500</span></label><br>
-         <br>
-        </form>
-      </div>
-      <div class="questionquizz1">
-        <img src="Img/moustique.jpg" id="moustique" class="imgQuizz1"></br>
-        <label class="questionq1"><span class="textquestionq1">De combien de mort son responsable les moustiques chaque année</span> </label>
-        <div id="reponse4q1">
-           <input type="radio" name="reponse4" value="1">
-           <label>-900 000</label><br>
-           <input type="radio" name="reponse4" value="1" checked>
-           <label>-750 000</label><br>
-           <input type="radio" name="reponse4" value="1">
-           <label>-500 000</label><br>
-           <input type="radio" name="reponse4" value="1">
-           <label>-250 000</label><br>
-         </div>
-      </div>      
-     <div>
-       <a class='validcontainer' href="main.php">Home</a>
-     </div>
+    </div>
+
     <?php include('footer.php') ?>
   </div>
   </body>
