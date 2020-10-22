@@ -38,16 +38,12 @@
               <input type="radio" name="radio" class="radio"> <label for="radio">La France veut reconquérir l'Alsace et la Lorraine</label><br/>
               <input type="radio" name="radio" class="radio"> <label for="radio">Un dérapage de l'empereur allemand sur les réseaux sociaux</label><br/>
               <input type="radio" name="radio" class="radio"> <label for="radio">L'assassinat de l'archiduc François Ferdinand a Sarajevo</label><br/>
-
-            
           </div>
 
           <div id='question3_quizz2' class='questionQuizz'>
             
               <label class='titreQuestion' for="GET-name">Question 3 : En quelle année s'est déroulée la bataille de Marignan ?</label>
               <input id="GET-name" type="number" name="name">
-              <input type="submit" value="Enregistrer">
-            
           </div>
 
           <div id='question4_quizz2' class='questionQuizz'>

@@ -14,6 +14,16 @@
       <div id='titrePage'>
         <h2>Quizz Animal</h2>
       </div>
+      <?php
+        $bdd = new PDO('mysql:host=localhost;dbname=quizz;charset=utf8', 'root', '');
+        $reponse = $bdd->query('SELECT question_title FROM question')->fetchAll();
+        echo($reponse[1][0]);
+        /*foreach ($reponse as $key=>$value){
+          foreach($value as $key2=>$value2){
+            echo($value2);
+          } 
+        }*/
+      ?>
       <form action="" method="post">
         <div id='questionContent'>
 

@@ -238,8 +238,6 @@ footer{
 }
 
 
-<<<<<<< HEAD
-
 .imgQuizz1{
 	border : 1px solid lightblue;
     border-radius : 35px;
@@ -324,8 +322,7 @@ footer{
   font-weight: bold;
   transition: 2s;
 }
-=======
->>>>>>> mock_up
+
 /*_________________________QUIZZ 2__________________________*/
 #questionContent{
 	display: flex;
