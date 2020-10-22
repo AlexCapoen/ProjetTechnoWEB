@@ -8,7 +8,7 @@
     <title>Quizz</title>
   </head>
   <body>
-  <div id='container'>
+  <div class='container'>
     <?php include('header.php') ?>
     <div id="content">
       <div id='titrePage'>
@@ -16,7 +16,7 @@
       </div>
       <div id='questionContent'>
 
-        <div id='question1_quizz2' class='questionQuizz2'>
+        <div id='question1_quizz2' class='questionQuizz'>
           <form action="" method="post">
 
             <p class='titreQuestion'>Question 1 : Quel était le surnom de Louis XIV ?</p>
@@ -30,7 +30,7 @@
             
         </div>
 
-        <div id= 'question2_quizz2' class='questionQuizz2'>
+        <div id= 'question2_quizz2' class='questionQuizz'>
           <form action="" method="post">
 
             <p class='titreQuestion'>Question 2 : Quel est l'évènement déclencheur de la 1ère guerre mondiale ?</p>
@@ -42,7 +42,7 @@
           </form>
         </div>
 
-        <div id='question3_quizz2' class='questionQuizz2'>
+        <div id='question3_quizz2' class='questionQuizz'>
           <form action="" method="get">
             <label class='titreQuestion' for="GET-name">Question 3 : En quelle année s'est déroulée la bataille de Marignan ?</label>
             <input id="GET-name" type="number" name="name">
@@ -50,37 +50,37 @@
           </form>
         </div>
 
-        <div id='question4_quizz2' class='questionQuizz2'>
+        <div id='question4_quizz2' class='questionQuizz'>
           <p class='titreQuestion'>Question 4 : Parmi ces pays lesquels sont considérés comme vainqueur de la 2nd guerre mondiale :</p>
           <div>
-            <input type="checkbox" id="rep1" name="rep1">
-            <label for="rep1">Royaume-Uni</label>
+            <input type="checkbox" id="rep1q2" name="rep1">
+            <label for="rep1q2">Royaume-Uni</label>
           </div>
 
           <div>
-            <input type="checkbox" id="rep2" name="rep2">
-            <label for="rep2">Italie</label>
+            <input type="checkbox" id="rep2q2" name="rep2">
+            <label for="rep2q2">Italie</label>
           </div>
           <div>
-            <input type="checkbox" id="rep3" name="rep3">
-            <label for="rep3">Japon</label>
+            <input type="checkbox" id="rep3q2" name="rep3">
+            <label for="rep3q2">Japon</label>
           </div>
           <div>
-            <input type="checkbox" id="rep4" name="rep4">
-            <label for="rep4">France</label>
+            <input type="checkbox" id="rep4q2" name="rep4">
+            <label for="rep4q2">France</label>
           </div>
           <div>
-            <input type="checkbox" id="rep5" name="rep5">
-            <label for="rep5"> Etats-unis</label>
+            <input type="checkbox" id="rep5q2" name="rep5">
+            <label for="rep5q2"> Etats-unis</label>
           </div>
           <div>
-            <input type="checkbox" id="rep6" name="rep6">
-            <label for="rep6">Le Vatican</label>
+            <input type="checkbox" id="rep6q2" name="rep6">
+            <label for="rep6q2">Le Vatican</label>
           </div>
         </div>
       </div>
 
-      <div id='boutonSubmit'>
+      <div class='boutonSubmit'>
         <a href="answerquizz2.php"> <input type="button" value="Submit" class="buttonSubmit"> </a>
       </div>
 

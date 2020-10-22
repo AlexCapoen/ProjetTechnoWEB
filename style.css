@@ -234,92 +234,7 @@ footer{
 	background-color: white;
 }
 
-/*_________________________QUIZZ 1__________________________*/
 
-.imgQuizz1{
-	border : 1px solid lightblue;
-    border-radius : 35px;
-}
-.imgQuizz1 {
-    height: auto;
-    width: auto;
-    max-width: 500px;
-    max-height: 500px
-}
-.imgQuizz1:hover{
-	opacity :0.55;
-	transition:0.5s;
-}
-.questionq1{
-	color:white;
-	background-color:grey;
-	border-radius:  10px;
-	margin: 2rem;
-	margin-top: 8rem;
-	font-size: 1.25rem;
-	font-weight: bold;
-
-}
-.questionquizz1{
-	display: flex;
-	background-color: grey;
-	margin: 2rem;
-	border-radius: 35px;
-}
-.reponseq1{
-	background-color:white;
-	color:black;
-	margin-top: 6rem;
-	margin-bottom: 9rem;
-	border-radius: 7px;
-	border : 1px solid black;
-}
-#reponse4q1{
-	background-color:white;
-	color:black;
-	margin-top: 6rem;
-	margin-bottom: 11rem;
-	border-radius: 7px;
-	border : 1px solid black;
-}
-
-}
-.textquestionq1{
-	margin:15px;
-	color:white;
-}
-.textquestionq1{
-	margin:15px;
-	color:black;}
-.reponse1q1{
-	margin-top: 8.4rem;
-	margin-bottom: 8rem;
-
-}
-#validcontainer{
-  display: flex;
-  justify-content: center;
-}
-
-.validcontainer{
-  text-decoration: none;
-  background-color: #222629;
-  color: white;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  border-radius: 10%;
-  opacity: 0.7;
-  font-weight: bolder;
-}
-
-.validcontainer:hover{
-  border-color: #222629;
-  opacity: 0.7;
-  background-color: white;
-  color: #222629;
-  font-weight: bold;
-  transition: 2s;
-}
 /*_________________________QUIZZ 2__________________________*/
 #questionContent{
 	display: flex;
@@ -328,7 +243,7 @@ footer{
 	width: 100%;
 }
 
-.questionQuizz2{
+.questionQuizz{
 	box-shadow: 2px 2px 2px #17191b;
 	width : 50%;
 	height : auto;
@@ -355,7 +270,7 @@ footer{
 	margin-top: 1rem;
 }
 
-#boutonSubmit{
+.boutonSubmit{
 	height: auto;
 	display: flex;
 	justify-content: center;
