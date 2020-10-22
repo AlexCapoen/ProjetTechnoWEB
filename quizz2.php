@@ -20,12 +20,14 @@
           <form action="" method="post">
 
             <p class='titreQuestion'>Question 1 : Quel était le surnom de Louis XIV ?</p>
-            <input type="radio" name="radio" class="radio"> <label for="radio">Le roi des rats</label> <br/>
-            <input type="radio" name="radio" class="radio"> <label for="radio">Le roi Soleil</label><br/>
-            <input type="radio" name="radio" class="radio"> <label for="radio">Le roi FullStack</label><br/>
-            <input type="radio" name="radio" class="radio"> <label for="radio">L'ami des bêtes</label><br/>
-
-          </form>
+            <select  name="Roi" form="carform">
+              <option value="select" checked>Selectionner une réponse</option>
+              <option value="mako">Le Roi des rats</option>
+              <option value="requin">L'ami des bêtes</option>
+              <option value="serpent">Le Roi Soleil</option>
+              <option value="arairgnée">Le Roi full-stack</option>
+              </select>
+            
         </div>
 
         <div id= 'question2_quizz2' class='questionQuizz2'>
