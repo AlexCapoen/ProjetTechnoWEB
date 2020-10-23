@@ -202,7 +202,6 @@ header{
 footer{
 	height :7vh;
 	width : 100%;
-	position : absolute;
 	bottom :0;
 	background-color: #222629;
 	position: fixed;
