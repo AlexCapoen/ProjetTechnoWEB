@@ -12,15 +12,14 @@
   <div id='container' >
     <?php include('header.php') ?>
     <div id="content">
-      <p id="presentation">NEW QUIZZS AVAILABLE </p>
       <div id="present_quizz">
         <div class="container_quizz" >
           <img src="Img/quizzAnimals.png" id="quizzAnimalsImg" class="imgQuizz noOpacity" onmouseout="outImg(this)">
-          <a class="link button notAvailable" id="quizzAnimalsButton" href="quizz1.php" onmouseover="onButtonAnimals(this)">Start Quizz</a>
+          <a class="link button notAvailable" id="quizzAnimalsButton" href="quizz.php?id=1" onmouseover="onButtonAnimals(this)">Start Quizz</a>
         </div>
         <div class="container_quizz">
           <img src="Img/quizzHistory.jpg" id="quizzHistoryImg" class="imgQuizz noOpacity" onmouseout="outImg(this)">
-          <a class="link button notAvailable" id="quizzHistoryButton" href="quizz2.php" onmouseover="onButtonHistory(this)">Start Quizz</a>
+          <a class="link button notAvailable" id="quizzHistoryButton" href="quizz.php?id=2" onmouseover="onButtonHistory(this)">Start Quizz</a>
         </div>
       </div>
     </div>
