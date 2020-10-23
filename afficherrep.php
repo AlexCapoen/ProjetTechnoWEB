@@ -1,4 +1,5 @@
 <?php
+
 	function afficherRep($quizzId){
 		/*titre et contenu*/
             $quizz = BDD::get()->query('SELECT quizz_name FROM quizz;')->fetchAll();
@@ -14,15 +15,23 @@
 
               if($line['question_input_type']=='carform'){
                 echo("<div id='question ".$comp."_quizz1' class='questionQuizz'>");
+
                 echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."</p>");
+
                 echo(" <select  name='Question".$comp."Quizz".$line['question_quizz_id']."' form='carform'>");
 
+
+                
+
                 $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
+
+
 
                 foreach ($response as $key2 => $answer) {
                     if ($answer['is_valid_answer'] == 1){
                     echo('<option value="true">'.$answer['answer_text'].'</option>');
                     }
+
 
                 }
 
@@ -39,7 +48,12 @@
                 foreach ($response as $key2 => $answer) {
                     $compans=$compans+1;
                     if ($answer['is_valid_answer'] == 1){
-                    echo("<div> <input type='checkbox' checked id='rep".$compans."1q1' name='rep".$compans."'> <label for='rep1q1'>".$answer['answer_text']."</label></div>");
+                        if{
+
+                            echo("<div> <input type='checkbox' checked id='rep".$compans."1q1' name='rep".$compans."'> <label for='rep1q1'>".$answer['answer_text']."</label></div>");
+                        }
+                   
+
                     }
                 }
 

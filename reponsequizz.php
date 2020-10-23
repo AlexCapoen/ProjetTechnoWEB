@@ -13,11 +13,12 @@
          <?php
           include('PDOFactory.php');
           include('afficherrep.php');
+
           function getAnswer($array){
             $arrayIncr = array();   //give Id of answer
             foreach ($array as $elm) {
               if(is_array($elm)){
-                insertArray($elm);
+                getAnswer($elm);
               }
               else{
                 if ($elm != 'Submit') {
@@ -29,6 +30,30 @@
 
           getAnswer($_POST);
           afficherrep($_GET['id']);
+
+          function comparison($question_id,$answerArray){
+            switch ($question_id){
+              case 1:
+              switch ($answer_id){
+                case 3:
+                return "Vous aviez juste.";
+                default: 
+                return "Vous avez faux à la question 1.";
+              }
+
+              case 2:
+              $goodAnswer=5;
+
+              if (6<=$answer_id<=9){
+
+              }
+              
+
+
+
+            }
+          }
+
           ?>
     <?php include('footer.php'); ?>
   </div>
