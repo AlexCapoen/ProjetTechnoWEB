@@ -3,7 +3,7 @@
 		/*titre et contenu*/
             $quizz = BDD::get()->query('SELECT quizz_name FROM quizz;')->fetchAll();
             echo('<div id="content"><div id="titrePage"><h2>Quizz '.$quizz[$quizzId-1]['quizz_name'].'</h2></div>');
-            echo('<form action="" method="post"><div id="questionContent">');
+            echo('<form action="reponsequizz.php?id='.$quizzId.'" method="post"><div id="questionContent">');
             /*question quizz start*/
             $question = BDD::get()->query('SELECT question_id, question_title,question_input_type,question_quizz_id FROM question WHERE question.question_quizz_id = '.$quizzId)->fetchAll();
             $comp=0;/*compteur de question affichées*/
@@ -64,7 +64,7 @@
             }
             /*question quizz end*/
             /*start submit button*/
-            echo('<div class="boutonSubmit"><a href="reponsequizz1.php"> <input type="submit" value="Submit"class="buttonSubmit"> </a></div>)');
+            echo('<div class="boutonSubmit"><a href=""> <input type="submit" value="Submit"class="buttonSubmit"></a></div>)');
             /*end submit button*/
             echo("</div>");/*end div questionContent*/
             echo('</form>');
