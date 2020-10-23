@@ -15,11 +15,10 @@
                 echo("<div id='question ".$comp."_quizz1' class='questionQuizz'>");
                 echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."</p>");
                 echo(" <select  name='Question".$comp."Quizz".$line['question_quizz_id']."' form='carform'>");
-                echo('<option value="select" checked>Selectionner une réponse</option>');
                 $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
 
                 foreach ($response as $key2 => $answer) {
-                  echo('<option value='.$answer['answer_text'].' checked>'.$answer['answer_text'].'</option>');
+                  echo('<option value=' .$answer['answer_id']. '>'.$answer['answer_text'].'</option>');
                 }
 
                 echo("</select>");
@@ -34,7 +33,7 @@
 
                 foreach ($response as $key2 => $answer) {
                 	$compans=$compans+1;
-                  echo("<div> <input type='checkbox' id='rep".$compans."1q1' name='choix[]'' value=".$answer['answer_text']." '> <label for='rep1q1'>".$answer['answer_text']."</label></div>");
+                  echo("<div> <input type='checkbox' id='rep".$compans."1q1' name='choix[]'' value=".$answer['answer_id']." '> <label for='rep1q1'>".$answer['answer_text']."</label></div>");
                 }
 
                 echo('</div>');
@@ -56,7 +55,7 @@
                 $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
 
                 foreach ($response as $key2 => $answer) {
-                  echo('<input type="radio" name="radio" value='.$answer['answer_text'].' class="radio"> <label for="radio">'.$answer['answer_text'].'</label> <br/>');
+                  echo('<input type="radio" name="radio" value='.$answer['answer_id'].' class="radio"> <label for="radio">'.$answer['answer_text'].'</label> <br/>');
                 }
 
                 echo('</div>');
@@ -64,7 +63,7 @@
             }
             /*question quizz end*/
             /*start submit button*/
-            echo('<div class="boutonSubmit"><a href="reponsequizz1.php"> <input type="submit" formaction="reponsequizz1.php" name="valide" value="Submit" class="buttonSubmit"> </a></div>)');
+            echo('<div class="boutonSubmit"><a href="reponsequizz1.php"> <input type="submit" name="valide" value="Submit" class="buttonSubmit"> </a></div>)');
             /*end submit button*/
             echo("</div>");/*end div questionContent*/
             echo('</form>');

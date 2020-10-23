@@ -1,27 +1,22 @@
 <?php
 
-function addAnswerInDB($answer){
-  if(isset($_POST['valide'])){
-    insertArray($answer);
-  }
-  else{
-    echo "ca marche pas";
-  }
-}
+  include('PDOFactory.php');
 
 
-function insertArray($array){
-  foreach ($array as $elm) {
-    if(is_array($elm)){
-      insertArray($elm);
-    }
-    else{
-        //inserer elm dans la db
-
+  function insertArray($array){
+    $arrayIncr = array();   //give Id of answer
+    foreach ($array as $elm) {
+      if(is_array($elm)){
+        insertArray($elm);
+      }
+      else{
+        if ($elm != 'Submit') {
+          echo $elm;    //valeur id
+        }
+      }
     }
   }
-}
 
-print_r($_POST);
+  insertArray($_POST);
 
   ?>
