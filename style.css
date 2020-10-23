@@ -96,13 +96,11 @@ header{
 	padding :0;
 }
 #headerContainer{
-
 	position :relative;
 	height: 15vh;
 	width: 100%;
 	background-color : #222629;
 	opacity: 0.7;
-
 }
 #headerContent{
 	opacity: 1;
@@ -118,12 +116,17 @@ header{
 	color :white;
 	letter-spacing: 2px;
 	font-size : 1.5rem;
-	border : 2px solid white;
-	border-radius: 10px;
 	padding-left: 3px;
 	padding-right: 3px;
 	transition: 0.5s;
-
+}
+#linkHomeHeader{
+	border : 2px solid white;
+	border-radius: 10px;
+}
+#linkQuizzHeader{
+	border : 2px solid white;
+	border-radius: 10px;
 }
 #linkContainer{
 	display : flex;
@@ -133,7 +136,7 @@ header{
 	margin-top: 0.4rem;
 }
 
-#headerContent .navlink:hover{
+.navlink:hover{
 	color :#222629;
 	letter-spacing: 2px;
 	font-size : 1.5rem;
@@ -233,7 +236,6 @@ footer{
 	background-color: white;
 }
 
-/*_________________________QUIZZ 1__________________________*/
 
 .imgQuizz1{
 	border : 1px solid lightblue;
@@ -319,6 +321,7 @@ footer{
   font-weight: bold;
   transition: 2s;
 }
+
 /*_________________________QUIZZ 2__________________________*/
 #questionContent{
 	display: flex;
@@ -327,7 +330,7 @@ footer{
 	width: 100%;
 }
 
-.questionQuizz2{
+.questionQuizz{
 	box-shadow: 2px 2px 2px #17191b;
 	width : 50%;
 	height : auto;
@@ -354,7 +357,7 @@ footer{
 	margin-top: 1rem;
 }
 
-#boutonSubmit{
+.boutonSubmit{
 	height: auto;
 	display: flex;
 	justify-content: center;
@@ -377,5 +380,3 @@ footer{
   font-weight: bold;
   transition: 2s;
 }
-
-
