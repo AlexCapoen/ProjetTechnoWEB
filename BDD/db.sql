@@ -52,7 +52,7 @@ INSERT INTO `answer` (`answer_id`, `answer_text`, `is_valid_answer`, `answer_que
 (7, '8', 1, 2),
 (8, '10', 1, 2),
 (9, '12', 1, 2),
-(10, '29 500', 1, 3),
+(29500, '29 500', 1, 3),
 (11, '900 000', 0, 4),
 (12, '750 000', 1, 4),
 (13, '500 000', 0, 4),
@@ -65,7 +65,7 @@ INSERT INTO `answer` (`answer_id`, `answer_text`, `is_valid_answer`, `answer_que
 (20, 'La France veut reconquérir l\'Alsace et la Lorraine', 0, 6),
 (21, 'Un dérapage de l\'empereur allemand sur les réseaux sociaux', 0, 6),
 (22, 'L\'assassinat de l\'archiduc François Ferdinand à Sarajevo', 1, 6),
-(23, '1515', 1, 7),
+(1515, '1515', 1, 7),
 (24, 'Royaume-Uni', 1, 8),
 (25, 'Italie', 0, 8),
 (26, 'Japon', 0, 8),
@@ -94,10 +94,10 @@ CREATE TABLE IF NOT EXISTS `question` (
 --
 
 INSERT INTO `question` (`question_id`, `question_title`, `question_quizz_id`, `question_input_type`) VALUES
-(1, 'Comment s\'appelle cette espèce de requin?', 1, 'carform'),
+(1, 'Comment s\'appelle cette espece de requin ?', 1, 'carform'),
 (2, 'Combien d\'yeux peuvent avoir les araignées ?', 1, 'checkbox'),
 (3, 'Combien de rhinocéros reste-il en vie ?', 1, 'input'),
-(4, 'De combien de mort son responsable les moustiques chaque année ?', 1, 'radio'),
+(4, 'De combien de mort sont responsable les moustiques chaque année ?', 1, 'radio'),
 (5, 'Quel était le surnom de Louis XIV ?', 2, 'carform'),
 (6, 'Quel est l\'évènement déclencheur de la 1ère guerre mondiale ?', 2, 'radio'),
 (7, 'En quelle année s\'est déroulée la bataille de Marignan ?', 2, 'input'),

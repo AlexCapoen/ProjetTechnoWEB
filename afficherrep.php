@@ -1,5 +1,26 @@
 <?php
+     function comparison($question_id,$answerArray){
+            $response = BDD::get()->query('SELECT answer_id,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$question_id)->fetchAll();
+              $compGoodAns=0;
+              foreach ($response as $value1) {
+                if ($value1['is_valid_answer']) {
+                  $compGoodAns=$compGoodAns+1;
+                }
+              }
 
+            $comp=0;
+            foreach($response as $value){
+              if( in_array($value['answer_id'],$answerArray)&&($value['is_valid_answer'])){
+                $comp=$comp+1;
+              }
+            }
+            if($comp==$compGoodAns){
+              return 'Bonne Reponse';
+            }else{
+              return 'Mauvaise Reponse';
+            }
+            
+          }
 	function afficherRep($quizzId){
 		/*titre et contenu*/
             $quizz = BDD::get()->query('SELECT quizz_name FROM quizz;')->fetchAll();
@@ -16,7 +37,7 @@
               if($line['question_input_type']=='carform'){
                 echo("<div id='question ".$comp."_quizz1' class='questionQuizz'>");
 
-                echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."</p>");
+                echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."".comparison($line['question_id'],$_POST)."</p>");
 
                 echo(" <select  name='Question".$comp."Quizz".$line['question_quizz_id']."' form='carform'>");
 
@@ -41,18 +62,17 @@
 
               if($line['question_input_type']=='checkbox'){
                 echo("<div id='question ".$comp."_quizz1' class='questionQuizz'>");
-                echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."</p>");
+                echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."".comparison($line['question_id'],$_POST)."</p>");
                 $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
                 $compans=0;
 
                 foreach ($response as $key2 => $answer) {
                     $compans=$compans+1;
                     if ($answer['is_valid_answer'] == 1){
-                        if{
+                       
 
                             echo("<div> <input type='checkbox' checked id='rep".$compans."1q1' name='rep".$compans."'> <label for='rep1q1'>".$answer['answer_text']."</label></div>");
-                        }
-                   
+                                   
 
                     }
                 }
@@ -65,7 +85,7 @@
                 $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
                 
                 echo("<div id='question ".$comp."_quizz1' class='questionQuizz'>");
-                echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."</p>");
+                echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."".comparison($line['question_id'],$_POST)."</p>");
                 foreach ($response as $key2 => $answer) {
                     echo('<input id="GET-name" value="'.$answer['answer_text'].'" type="text" name="name">');
                 }
@@ -74,7 +94,7 @@
 
               if($line['question_input_type']=='radio'){
                 echo("<div id='question ".$comp."_quizz1' class='questionQuizz'>");
-                echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."</p>");
+                echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."".comparison($line['question_id'],$_POST)."</p>");
                 $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
 
                 foreach ($response as $key2 => $answer) {
