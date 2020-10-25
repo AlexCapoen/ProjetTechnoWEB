@@ -2,9 +2,9 @@
 	function afficherQuizz($quizzId){
 		/*titre et contenu*/
 
-    function printTitle ($quizzId,$comp,$line){
+    function printTitle ($quizzId,$comp,$line,$exactQuestion){
 
-      echo("<div id='question ".$comp."_quizz".$quizzId."' class='questionQuizz'>");
+      echo("<div id='question ".$comp."_quizz".$quizzId."' class='questionQuizz ".$exactQuestion."'>");
       echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."</p>");
     }
 
@@ -20,16 +20,17 @@
     foreach ($question as $key=>$line){
       $comp=$comp+1;
 
-
+      $questionExacte="q".$comp."f".$quizzId."";
 
       // Printing forms 
 
 
       // ---------------------------carform------------------------------------------//
 
-      if($line['question_input_type']=='carform'){  
+      if($line['question_input_type']=='carform'){
 
-        printTitle ($quizzId,$comp,$line);
+
+        printTitle ($quizzId,$comp,$line,$questionExacte);
 
         echo(" <select  name='Question".$comp."Quizz".$line['question_quizz_id']."' class='carform' form='carform'>");
 
@@ -49,7 +50,7 @@
 
       if($line['question_input_type']=='checkbox'){
 
-        printTitle ($quizzId,$comp,$line);
+        printTitle ($quizzId,$comp,$line,$questionExacte);
 
         $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
         $compans=0;
@@ -71,7 +72,7 @@
 
       if($line['question_input_type']=='input'){
 
-        printTitle ($quizzId,$comp,$line);
+        printTitle ($quizzId,$comp,$line,$questionExacte);
 
         echo('<input id="GET-name" class="input" type="number" name="name">');
         echo('</div>');
@@ -83,7 +84,7 @@
 
       if($line['question_input_type']=='radio'){
 
-        printTitle ($quizzId,$comp,$line);
+        printTitle ($quizzId,$comp,$line,$questionExacte);
 
 
         $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
@@ -98,7 +99,7 @@
     /*question quizz end*/
     /*start submit button*/
 
-    echo('<div class="boutonSubmit"><a href=""> <input type="submit" value="Submit"class="buttonSubmit"></a></div>)');
+    echo('<div class="boutonSubmit"><a href=""> <input type="submit" value="Submit"class="buttonSubmit"></a></div>');
     
 
 
