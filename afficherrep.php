@@ -1,26 +1,27 @@
 <?php
-     function comparison($question_id,$answerArray){
-            $response = BDD::get()->query('SELECT answer_id,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$question_id)->fetchAll();
-              $compGoodAns=0;
-              foreach ($response as $value1) {
-                if ($value1['is_valid_answer']) {
-                  $compGoodAns=$compGoodAns+1;
-                }
-              }
+  function comparison($question_id,$answerArray){
+    $response = BDD::get()->query('SELECT answer_id,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$question_id)->fetchAll();
+    $question = BDD::get()->query('SELECT question_input_type FROM question WHERE question_id ='.$question_id)->fetchAll();
+    $compGoodAns=0;
+    foreach ($response as $value1) {
+      if ($value1['is_valid_answer']) {
+          $compGoodAns=$compGoodAns+1;
+      }
+    }
 
-            $comp=0;
-            foreach($response as $value){
-              if( in_array($value['answer_id'],$answerArray)&&($value['is_valid_answer'])){
-                $comp=$comp+1;
-              }
-            }
-            if($comp==$compGoodAns){
-              return 'Bonne Reponse';
-            }else{
-              return 'Mauvaise Reponse';
-            }
-            
-          }
+    $comp=0;
+    foreach($response as $value){
+      if( in_array($value['answer_id'],$answerArray)&&($value['is_valid_answer'])){
+        $comp=$comp+1;
+      }
+    }
+    if($comp==$compGoodAns){
+      return 'Bonne Reponse';
+    }else{
+      return 'Mauvaise Reponse';
+    }            
+  }
+
 	function afficherRep($quizzId){
 		/*titre et contenu*/
             $quizz = BDD::get()->query('SELECT quizz_name FROM quizz;')->fetchAll();
@@ -50,7 +51,7 @@
 
                 foreach ($response as $key2 => $answer) {
                     if ($answer['is_valid_answer'] == 1){
-                    echo('<option value="true">'.$answer['answer_text'].'</option>');
+                      echo('<option value="true">'.$answer['answer_text'].'</option>');
                     }
 
 
@@ -114,4 +115,4 @@
             echo("</div>");/*end div content*/
 	}
 
- ?>
+?>

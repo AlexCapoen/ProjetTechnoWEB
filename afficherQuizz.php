@@ -14,7 +14,7 @@
               if($line['question_input_type']=='carform'){
                 echo("<div id='question ".$comp."_quizz1' class='questionQuizz'>");
                 echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."</p>");
-                echo(" <select  name='Question".$comp."Quizz".$line['question_quizz_id']."' form='carform'>");
+                echo(" <select  name='Question".$comp."Quizz".$line['question_quizz_id']."'>");
                 $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
 
                 foreach ($response as $key2 => $answer) {
@@ -26,14 +26,14 @@
               }
 
               if($line['question_input_type']=='checkbox'){
-                echo("<div id='question ".$comp."_quizz1' class='questionQuizz'>");
+               	echo("<div id='question ".$comp."_quizz1' class='questionQuizz'>");
                 echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."</p>");
                 $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
                 $compans=0;
 
                 foreach ($response as $key2 => $answer) {
-                	$compans=$compans+1;
-                  echo("<div> <input type='checkbox' id='rep".$compans."1q1' name='choix[]'' value=".$answer['answer_id']." '> <label for='rep1q1'>".$answer['answer_text']."</label></div>");
+                 	$compans=$compans+1;
+                	echo("<div> <input type='checkbox' id='rep".$compans."1q1' name='Question".$comp."Quizz".$line['question_quizz_id']."[]' value=".$answer['answer_id']." '> <label for='rep".$compans."1q1'>".$answer['answer_text']."</label></div>");
                 }
 
                 echo('</div>');
@@ -43,7 +43,7 @@
               if($line['question_input_type']=='input'){
                 echo("<div id='question ".$comp."_quizz1' class='questionQuizz'>");
                 echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."</p>");
-                echo('<input id="GET-name" type="number" name="name">');
+                echo('<input id="GET-name" type="number" name="Question'.$comp.'Quizz'.$line['question_quizz_id'].'">');
                 echo('</div>');
               }
 
@@ -53,7 +53,7 @@
                 $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
 
                 foreach ($response as $key2 => $answer) {
-                  echo('<input type="radio" name="radio" value='.$answer['answer_id'].' class="radio"> <label for="radio">'.$answer['answer_text'].'</label> <br/>');
+                  echo('<input type="radio" name="Question'.$comp.'Quizz'.$line['question_quizz_id'].'" value='.$answer['answer_id'].' class="radio"> <label for="radio">'.$answer['answer_text'].'</label> <br/>');
                 }
 
                 echo('</div>');
@@ -62,7 +62,7 @@
             /*question quizz end*/
             /*start submit button*/
 
-            echo('<div class="boutonSubmit"><a href=""> <input type="submit" value="Submit"class="buttonSubmit"></a></div>)');
+            echo('<div class="boutonSubmit"><a href=""> <input type="submit" value="Submit" class="buttonSubmit"></a></div>)');
 
 
             /*end submit button*/
