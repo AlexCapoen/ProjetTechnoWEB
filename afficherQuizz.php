@@ -31,7 +31,7 @@
 
         printTitle ($quizzId,$comp,$line);
 
-        echo(" <select  name='Question".$comp."Quizz".$line['question_quizz_id']."' form='carform'>");
+        echo(" <select  name='Question".$comp."Quizz".$line['question_quizz_id']."' class='carform' form='carform'>");
 
         $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
 
@@ -56,7 +56,7 @@
 
         foreach ($response as $key2 => $answer) {
         	$compans=$compans+1;
-          echo("<div> <input type='checkbox' id='rep".$compans."1q1' name='choix[]'' value=".$answer['answer_id']." '> <label for='rep1q1'>".$answer['answer_text']."</label></div>");
+          echo("<div> <input class='checkboxElmnt' type='checkbox' id='rep".$compans."1q1' name='choix[]'' value=".$answer['answer_id']." '> <label for='rep1q1'>".$answer['answer_text']."</label></div>");
         }
 
         echo('</div>');
@@ -73,7 +73,7 @@
 
         printTitle ($quizzId,$comp,$line);
 
-        echo('<input id="GET-name" type="number" name="name">');
+        echo('<input id="GET-name" class="input" type="number" name="name">');
         echo('</div>');
       }
 
@@ -89,7 +89,7 @@
         $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
 
         foreach ($response as $key2 => $answer) {
-          echo('<input type="radio" name="radio" value='.$answer['answer_id'].' class="radio"> <label for="radio">'.$answer['answer_text'].'</label> <br/>');
+          echo('<input type="radio" class="radioElmnt" name="radio" value='.$answer['answer_id'].' class="radio"> <label for="radio">'.$answer['answer_text'].'</label> <br/>');
         }
 
         echo('</div>');

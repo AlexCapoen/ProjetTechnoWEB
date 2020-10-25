@@ -335,23 +335,7 @@ footer{
   transition: 2s;
 }
 
-/*_________________________QUIZZ____________________________*/
-
-
-.input{
-border: none;
-border-bottom: 0.3rem solid transparent;
-border: none;
-border-radius:0.2em;
-
-}
-
-.carform{
-	border: none;
-	border-bottom: 0.3rem solid transparent;
-	border: none;
-	border-radius:0.2em;
-}
+/*_________________________QUIZZ 2__________________________*/
 #questionContent{
 	display: flex;
 	justify-content: center;
