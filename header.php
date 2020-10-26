@@ -10,8 +10,13 @@
         <div id="quizz">
 				<a id="headerA" class="navlink">Quizz</a>
           <div class="navQuizz">
-            <a class="quizzElement" href="./quizz.php?id=1">Quizz 1</a>
-            <a class="quizzElement" href="./quizz.php?id=2">Quizz 2</a>
+          	<?php
+          		
+          		$quizz=BDD::get()->query('SELECT quizz_id FROM quizz')->fetchAll();
+          		foreach ($quizz as $key => $quizzIndex) {
+          			echo('<a class="quizzElement" href="./quizz.php?id='.$quizzIndex['quizz_id'].'">Quizz '.$quizzIndex['quizz_id'].'</a>');
+          		}
+            ?>
           </div>
         </div>
 			</div>
