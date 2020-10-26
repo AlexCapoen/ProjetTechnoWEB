@@ -5,10 +5,10 @@
 			<br/>
 			<div id="linkContainer">
 				<div>
-					<a class="navlink" href="main.php">Home</a>
+					<a id="headerA" class="navlink" href="main.php">Home</a>
 				</div>
         <div id="quizz">
-				<a class="navlink">Quizz</a>
+				<a id="headerA" class="navlink">Quizz</a>
           <div class="navQuizz">
             <a class="quizzElement" href="./quizz.php?id=1">Quizz 1</a>
             <a class="quizzElement" href="./quizz.php?id=2">Quizz 2</a>
