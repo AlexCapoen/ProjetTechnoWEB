@@ -5,20 +5,13 @@
   font-family: "Montserrat",sans-serif;
   padding :0;
   margin:0;
-}
-
-:root
-{
-    --colorSite: #d50000 ;
+  --colorSite: #d50000 ;
+  scroll-behavior: smooth;
 }
 
 /*_________________________HOME__________________________*/
-html {
-  scroll-behavior: smooth;
-}
 body{
   overflow: hidden; /* Hide scrollbars */
-
 
 }
 #container{
@@ -72,7 +65,7 @@ body{
 	position : absolute;
     top :45%;
     left :28%;
-	background-color : 	grey;
+	background-color : var(--colorSite);
 	height: auto;
 	width: auto;
 	font-size: 1.75rem;
@@ -81,11 +74,11 @@ body{
     transition:0.5s;
 }
 #quizzAnimalsImg:hover~#quizzAnimalsButton{
-    opacity :1;
+    opacity :0.7;
 }
 
 #quizzHistoryImg:hover~#quizzHistoryButton{
-    opacity :1;
+    opacity :0.7;
 }
 
 #quizzHistoryButton, #quizzAnimalsButton{
@@ -94,7 +87,7 @@ body{
 
 .button:hover{
 
-    opacity :1;
+    opacity :0.7;
 }
 a.link{
 	text-decoration: none;
@@ -366,67 +359,66 @@ border-radius:0.2em;
   transition: 2s;
 }
 
+
 .q1f1{
 	background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Img/q1f1.jpg');
 	/*background-image: url('Img/q1f1.jpg');*/
 	background-size:15%;
-
-
 }
 
 .q2f1{
 	background:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('Img/q2f1.jpg');
 	/*background-image: url('Img/q1f1.jpg');*/
-	background-size:100% 100%;
-	
-	
+	background-size:100% 100%;	
 }
+
 .q3f1{
 	background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Img/q3f1.jpg');
 	/*background-image: url('Img/q1f1.jpg');*/
 	background-size:15%;
 	background-position: bottom;
-
 }
 
 .q4f1{
 	background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Img/q4f1.jpg');
 	/*background-image: url('Img/q1f1.jpg');*/
-	background-size:100% 100%;
-
-	
+	background-size:100% 100%;	
 }
-
 
 
 .q1f2{
 	background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Img/q1f2.jpg');
 	/*background-image: url('Img/q1f1.jpg');*/
-	background-size:10%;
-	
-	
+	background-size:10%;	
 }
 
 .q2f2{
 	background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Img/q2f2.jpg');
 	/*background-image: url('Img/q1f1.jpg');*/
-	background-size:100% 100%;
-	
-	
+	background-size:100% 100%;	
 }
 
 .q3f2{
 	background:linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Img/q3f2.jpg');
 	/*background-image: url('Img/q1f1.jpg');*/
-	background-size:15%;
-	
-	
+	background-size:15%;		
 }
 
 .q4f2{
 	background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Img/q4f2.jpg');
 	/*background-image: url('Img/q1f1.jpg');*/
-	background-size:100% 100%;
+	background-size:100% 100%;	
+}
+
+/*_________________________REP QUIZZ__________________________*/
+.goodAnswer{
+	color: green;
+	font-weight: 600;
+	letter-spacing: 1px;
+}
 	
-	
+.badAnswer{
+	color:red;
+	font-weight: 600;
+	letter-spacing: 1px;
 }

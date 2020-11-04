@@ -9,10 +9,12 @@
   </head>
   <body>
   <div class='container'>
-    <?php include('header.php'); ?>
+    <?php 
+      include('PDOFactory.php');
+      include('header.php'); 
+    ?>
          <?php
-          include('PDOFactory.php');
-          include('afficherrep.php');
+          include('displayFonctions.php');
           afficherrep($_GET['id']);
           ?>
     <?php include('footer.php'); ?>

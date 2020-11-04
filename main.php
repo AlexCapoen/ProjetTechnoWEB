@@ -13,7 +13,10 @@
 </head>
 <body>
   <div id='container' >
-    <?php include('header.php') ?>
+    <?php 
+      include('PDOFactory.php');
+      include('header.php'); 
+    ?>
     <div id="content">
       <div id="present_quizz">
         <div class="container_quizz" >
