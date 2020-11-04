@@ -71,12 +71,12 @@ function register($email,$password,$repassword,$name,$firstName,$phone,$birthdat
   $result = strval(testInsert($testPass,$testEmail));
   if ($result == "0"){
     insertionDB($email,$password,$name,$firstName,$phone,$birthdate);
-    echo 'ca insert';
+    return 'ca insert';
   }
   else{
-    echo $result; // str of the error
+    return $result; // str of the error
   }
 }
 
-register($email,$password,$repassword,$name,$firstName,$phone,$birthdate);
+echo register($email,$password,$repassword,$name,$firstName,$phone,$birthdate);
 ?>
