@@ -39,6 +39,9 @@ switch ($page) {
     case("register"):
         include('register.php');
         break;
+    case("aboutUs"):
+        include('aboutUs.php');
+        break;
         
     default:
         include('main.php');
