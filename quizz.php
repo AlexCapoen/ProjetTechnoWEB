@@ -10,15 +10,13 @@
   <body>
   <div class='container'>
     <?php 
-      include('PDOFactory.php');
-      include('header.php'); 
+       
     ?>
     <?php     
-      include('displayFonctions.php');
+      
       afficherQuizz($_GET['id']);
     ?>
     <?php 
-      include('footer.php'); 
     ?>
   </div>
   </body>

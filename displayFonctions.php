@@ -15,7 +15,7 @@ function afficherQuizz($quizzId){
     $quizz = BDD::get()->query('SELECT quizz_name FROM quizz;')->fetchAll();
 
   echo('<div id="content"><div id="titrePage"><h2>Quizz '.$quizz[$quizzId-1]['quizz_name'].'</h2></div>'); //Print quizz title from db
-  echo('<form action="reponsequizz.php?id='.$quizzId.'" method="post"><div id="questionContent">');
+  echo('<form action="index.php?page=reponse&id='.$quizzId.'" method="post"><div id="questionContent">');
   /*question quizz start*/
   $question = BDD::get()->query('SELECT question_id, question_title,question_input_type,question_quizz_id FROM question WHERE question.question_quizz_id = '.$quizzId)->fetchAll();
   $comp=0;/*number of question index */
@@ -247,7 +247,7 @@ function afficherRep($quizzId){
   }
   /*question quizz end*/
   /*start submit button*/
-  echo('<div class="boutonSubmit"><a href="main.php"> <input type="submit" value="Home"class="buttonSubmit"></a></div>)');
+  echo('<div class="boutonSubmit"><a href="index.php?page=home"> <input type="submit" value="Home"class="buttonSubmit"></a></div>)');
   /*end submit button*/
   echo("</div>");/*end div questionContent*/
   echo("</div>");/*end div content*/

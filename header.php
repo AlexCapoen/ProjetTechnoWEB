@@ -5,7 +5,7 @@
 			<br/>
 			<div id="linkContainer">
 				<div>
-					<a id="headerA" class="navlink" href="main.php">Home</a>
+					<a id="headerA" class="navlink" href="index.php?page=home">Home</a>
 				</div>
         <div id="quizz">
 				<a id="headerA" class="navlink">Quizz</a>
@@ -14,14 +14,14 @@
           		
           		$quizz=BDD::get()->query('SELECT quizz_id FROM quizz')->fetchAll();
           		foreach ($quizz as $key => $quizzIndex) {
-          			echo('<a class="quizzElement" href="./quizz.php?id='.$quizzIndex['quizz_id'].'">Quizz '.$quizzIndex['quizz_id'].'</a>');
+          			echo('<a class="quizzElement" href="./index.php?page=quizz&id='.$quizzIndex['quizz_id'].'">Quizz '.$quizzIndex['quizz_id'].'</a>');
           		}
             ?>
           </div>
         </div>
 			</div>
 		</div>
-		<a class="navlink" id="loginLink" href='login.php'><i class="fas fa-user-circle"></i>Login</a>
+		<a class="navlink" id="loginLink" href='index.php?page=login'><i class="fas fa-user-circle"></i>Login</a>
 	</div>
 
 </header>
