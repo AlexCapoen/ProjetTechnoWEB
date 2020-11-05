@@ -1,17 +1,24 @@
 <?php
 
-if($_GET['page']==NULL){
-    $page = '';
 
-}
-else{
-    $page = $_GET['page'];
-}
 
+
+// catch(Undefined $e){
+//     echo $e."putee";
+//     include("main.php");
+// }
 
 include('PDOFactory.php');
 include('header.php');
 include('displayFonctions.php');
+
+if(!isset($_GET['page'])){
+    $page=' ';
+    include('main.php');
+}
+else{
+    $page = $_GET['page'];
+}
 
 switch ($page) {
     case "home":
