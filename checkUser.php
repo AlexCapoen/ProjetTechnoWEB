@@ -8,14 +8,16 @@ if (isset($_POST)) {
   $password = $_POST['psw'];
 }
 
+
 function isConnected(){                 //return 0 -> no connected, 1 -> connected
-  if ($_SESSION['connected']) == 0) {
+  if ($_SESSION['connected'] == 0) {
     return 0;
   }
   else {
     return 1;
   }
 }
+
 
 function disconnect(){
   $_SESSION = array();
@@ -34,6 +36,7 @@ function connexion($login,$password){
       $passwordHash = $value[1];
       echo $mail;
       if (password_verify($password,$passwordHash)) {
+        $_SESSION['connected']=1;
         return 'c est co';
       }
       else {
