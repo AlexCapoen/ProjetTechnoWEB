@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -39,7 +38,7 @@ switch ($page) {
         break;
     case("register"):
         include('register.php');
-         break;
+        break;
         
     default:
         include('main.php');

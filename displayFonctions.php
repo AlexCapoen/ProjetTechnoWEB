@@ -187,8 +187,6 @@ function afficherRep($quizzId){
 
       printTitleRep ($quizzId,$comp,$line,$questionExacte);
 
-      // echo("<div id='question ".$comp."_quizz1' class='questionQuizz'>");
-      // echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."</p><p class='".comparison($line['question_id'],$_POST)[1]."'>".comparison($line['question_id'],$_POST)[0]."</p>");
 
       echo(" <select  name='Question".$comp."Quizz".$line['question_quizz_id']."' form='carform'>");
       $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
@@ -210,8 +208,8 @@ function afficherRep($quizzId){
 
       printTitleRep ($quizzId,$comp,$line,$questionExacte);
 
-      // echo("<div id='question ".$comp."_quizz1' class='questionQuizz'>");
-      // echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."</p><p class='".comparison($line['question_id'],$_POST)[1]."'> ".comparison($line['question_id'],$_POST)[0]."</p>");
+      echo("<div id='question ".$comp."_quizz1' class='questionQuizz'>");
+      echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."</p><p class='".comparison($line['question_id'],$_POST)[1]."'> ".comparison($line['question_id'],$_POST)[0]."</p>");
       $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
       $compans=0;
 
@@ -235,8 +233,6 @@ function afficherRep($quizzId){
 
       $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
 
-      // echo("<div id='question ".$comp."_quizz1' class='questionQuizz'>");
-      // echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."</p><p class='".comparison($line['question_id'],$_POST)[1]."'> ".comparison($line['question_id'],$_POST)[0]."</p>");
       foreach ($response as $key2 => $answer) {
         echo('<input id="GET-name" value="'.$answer['answer_text'].'" type="text" name="name">');
       }
@@ -249,9 +245,7 @@ function afficherRep($quizzId){
 
     if($line['question_input_type']=='radio'){
       printTitleRep ($quizzId,$comp,$line,$questionExacte);
-      
-      // echo("<div id='question ".$comp."_quizz1' class='questionQuizz'>");
-      // echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."</p><p class='".comparison($line['question_id'],$_POST)[1]."'> ".comparison($line['question_id'],$_POST)[0]."</p>");
+ 
       $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
 
       foreach ($response as $key2 => $answer) {
