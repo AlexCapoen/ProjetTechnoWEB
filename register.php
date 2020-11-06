@@ -1,42 +1,44 @@
-<div id="content">
-  <div id='loginContainer'>
-    <div id="formLogin">
+<div id="loginContainer">
+    <div id="formLogin" class="registering">
       <form action="checkRegister.php" method='POST' class="container">
-        <h1>Register</h1>
-        <label  for="email"><b class="itemLogin">Enter your Name</b></label>
+        
+        <label  for="email"><b class="itemLogin">Name</b></label>
         </br>
-        <input class="inputForm formBox" type="text" placeholder="Name" name="Name" required>
-        </br><label  for="email"><b class="itemLogin">Enter your First Name</b></label>
+        <input class="inputForm formBox" type="text" placeholder="John" name="Name" required>
+        </br><label  for="email"><b class="itemLogin">First Name</b></label>
         </br>
-        <input class="inputForm formBox" type="text" placeholder="FirstName" name="FirstName" required>
-        </br>
-
-        <label  for="email"><b class="itemLogin">Enter your Email</b></label>
-        </br>
-        <input type="text" class="formBox" placeholder="Enter Email" name="email" required>
+        <input class="inputForm formBox" type="text" placeholder="CENA" name="FirstName" required>
         </br>
 
-        <label  for="email"><b class="itemLogin">Enter your phone</b></label>
+        <label  for="email"><b class="itemLogin">Email</b></label>
         </br>
-        <input type="text" class="formBox" placeholder="Enter phone" name="phone" required>
-        </br>
-
-        <label  for="email"><b class="itemLogin">Enter your birthdate</b></label>
-        </br>
-        <input type="datetime-local" class="formBox" placeholder="Enter birthdate" name="birthdate" required>
+        <input type="text" class="inputForm formBox" placeholder="welcome@quizzeria.com" name="email" required>
         </br>
 
-        <label class="itemLogin" for="psw"><b class="itemLogin">Enter your Password</b></label>
+        <label  for="email"><b class="itemLogin">Phone</b></label>
+        </br>
+        <input type="text" class="inputForm formBox" placeholder="0690 12 34 56" name="phone" required>
+        </br>
+
+        <label  for="email"><b class="itemLogin">Birthdate</b></label>
+        </br>
+        <input type="datetime-local" class="inputForm formBox" placeholder="01/01/1945" name="birthdate" required>
+        </br>
+
+        <label class="itemLogin" for="psw"><b class="itemLogin">Password</b></label>
         </br>
         <input class="inputForm formBox"  type="password" placeholder="Enter Password" name="psw" required>
-        </br>
-        <label class="itemLogin formBox " for="psw"><b class="itemLogin">Confirm your Password</b></label>
+        
         </br>
         <input class="inputForm formBox" type="password" placeholder="Confirm Password" name="confirmePsw" required>
         </br>
+        </br>
         <button class="buttonLoginRegister" type="submit" name='register'>Register</button>
-        <a id="registerLoginLink" href="index.php?page=login">login</a>
+        </br>
+        </br>
+        <a id="registerLoginLink" href="index.php?page=login">Log In</a>
       </form>
     </div>
-  </div>
+
 </div>
+

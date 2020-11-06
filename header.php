@@ -21,7 +21,7 @@
         </div>
 			</div>
 		</div>
-		<a class="navlink" id="loginLink" href='index.php?page=login'><i class="fas fa-user-circle"></i>Login</a>
+		<a class="navlink" id="loginLink" href='index.php?page=login'><i class="fas fa-user-circle"></i>Log In</a>
 	</div>
 
 </header>
