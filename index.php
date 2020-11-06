@@ -49,6 +49,7 @@ switch ($page) {
     break;
 
     }
+
 include('footer.php')
 ?>
 

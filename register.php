@@ -12,12 +12,12 @@
 
         <label  for="email"><b class="itemLogin">Email</b></label>
         </br>
-        <input type="text" class="inputForm formBox" placeholder="welcome@quizzeria.com" name="email" required>
+        <input type="email" class="inputForm formBox" placeholder="welcome@quizzeria.com" name="email" required>
         </br>
 
         <label  for="email"><b class="itemLogin">Phone</b></label>
         </br>
-        <input type="text" class="inputForm formBox" placeholder="0690 12 34 56" name="phone" required>
+        <input type="tel" class="inputForm formBox" placeholder="06 90 12 34 56" name="phone" required>
         </br>
 
         <label  for="email"><b class="itemLogin">Birthdate</b></label>
@@ -37,6 +37,7 @@
         </br>
         </br>
         <a id="registerLoginLink" href="index.php?page=login">Log In</a>
+
       </form>
     </div>
 

@@ -11,7 +11,6 @@
 				<a id="headerA" class="navlink">Quizz</a>
           <div class="navQuizz">
           	<?php
-          		
           		$quizz=BDD::get()->query('SELECT quizz_id FROM quizz')->fetchAll();
           		foreach ($quizz as $key => $quizzIndex) {
           			echo('<a class="quizzElement" href="./index.php?page=quizz&id='.$quizzIndex['quizz_id'].'">Quizz '.$quizzIndex['quizz_id'].'</a>');

@@ -154,7 +154,7 @@ function comparison($question_id,$answerArray){
     if($comp==$compGoodAns){
       return ['Bonne Reponse', 'goodAnswer'];
     }else{
-      return ['MauvaiseReponse', 'badAnswer'];
+      return ['Mauvaise Reponse', 'badAnswer'];
     }            
   }
 
@@ -208,8 +208,6 @@ function afficherRep($quizzId){
 
       printTitleRep ($quizzId,$comp,$line,$questionExacte);
 
-      echo("<div id='question ".$comp."_quizz1' class='questionQuizz'>");
-      echo("<p class='titreQuestion'>Question".$comp." : ".$line['question_title']."</p><p class='".comparison($line['question_id'],$_POST)[1]."'> ".comparison($line['question_id'],$_POST)[0]."</p>");
       $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
       $compans=0;
 

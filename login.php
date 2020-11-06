@@ -4,7 +4,7 @@
 
 		    <label  for="email"><b class="itemLogin">Email</b></label>
 		    </br>
-        	<input type="text" class="inputForm formBox" placeholder="welcome@quizzeria.fr" name="email" required>
+        	<input type="email" class="inputForm formBox" placeholder="welcome@quizzeria.fr" name="email" required>
 		    </br>
 
 		    <label class="itemLogin" for="psw"><b class="itemLogin">Password</b></label>

@@ -2,8 +2,6 @@
 
 include('PDOFactory.php');
 
-
-
 if (isset($_POST['register'])) {
   $email = $_POST['email'];
   $name = $_POST['Name'];
