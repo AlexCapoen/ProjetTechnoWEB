@@ -11,7 +11,7 @@ if (isset($_POST['register'])) {
   $phone = $_POST['phone'];
   $birthdate = $_POST['birthdate'];
 
-  register($email,$password,$repassword,$name,$firstName,$phone,$birthdate);
+  setcookie("returnRegister",register($email,$password,$repassword,$name,$firstName,$phone,$birthdate),time()+3);
   header('Location: index.php?page=register');
   exit();
 }
@@ -20,7 +20,7 @@ if (isset($_POST['login'])) {
   $email = $_POST['email'];
   $password = $_POST['psw'];
 
-  echo connexion($email,$password);
+  setcookie("returnLogin",connexion($email,$password),time()+3);
   header('Location: index.php?page=login');
   exit();
 }
