@@ -38,10 +38,12 @@ body{
 	justify-content: space-around;
 	flex-wrap: wrap;
 	align-items:center;
-	height : auto;
+	height : 100%;
 	width : 100%;
 
+
 }
+
 .container_quizz{
 	position: relative;
 	text-align : center;
@@ -355,12 +357,12 @@ border-radius:0.2em;
 }
 
 .buttonSubmit:hover{
-  border-color: var(--colorSite);
+  border-color: var(--secColor);
   opacity: 0.7;
-  background-color: white;
-  color: var(--colorSite);
+  background-color: var(--secColor);
+  color: white ;
   font-weight: bold;
-  transition: 2s;
+  transition: 0.5s;
 }
 
 

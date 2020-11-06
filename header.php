@@ -1,7 +1,7 @@
 <header>
   	<div id='headerContainer'>
   		<div id="headerContent">
-			<h1 id="headerTitle">Welcome at Quizz.com</h1>
+			<h1 id="headerTitle">Quizzeria</h1>
 			<br/>
 			<div id="linkContainer">
 				<div>
