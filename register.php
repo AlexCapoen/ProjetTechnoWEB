@@ -34,10 +34,9 @@
         </br>
         <input class="inputForm formBox" type="password" placeholder="Confirm Password" name="confirmePsw" required>
         </br>
-        <button class="buttonLoginRegister" type="submit">Register</button>
+        <button class="buttonLoginRegister" type="submit" name='register'>Register</button>
         <a id="registerLoginLink" href="index.php?page=login">login</a>
       </form>
     </div>
   </div>
 </div>
-

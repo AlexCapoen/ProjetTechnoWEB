@@ -9,8 +9,9 @@
   <title>Quizz.com</title>
 </head>
 <body>
-    
+
 <?php
+session_start();
 include('PDOFactory.php');
 include('header.php');
 include('displayFonctions.php');
@@ -42,17 +43,14 @@ switch ($page) {
     case("aboutUs"):
         include('aboutUs.php');
         break;
-        
+
     default:
         include('main.php');
     break;
-    
+
     }
 include('footer.php')
 ?>
 
 </body>
 </html>
-
-
-

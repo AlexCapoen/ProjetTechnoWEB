@@ -3,7 +3,8 @@
 include('PDOFactory.php');
 
 
-if (isset($_POST)) {
+
+if (isset($_POST['register'])) {
   $email = $_POST['email'];
   $name = $_POST['Name'];
   $firstName = $_POST['FirstName'];
@@ -15,8 +16,8 @@ if (isset($_POST)) {
 
 
 
-function testPassword($password,$repassword){   // test if the user has entered the same password twice, return -1 or 0
-  if ($password != $repassword) {
+function testPassword($password,$repassword){   //takes in parameter the 2 passwords inputby the user
+  if ($password != $repassword) {               //test if the user has input the same password twice, return -1 (=/=) or 0 (=)
     return -1;
   }
   else{
@@ -26,21 +27,20 @@ function testPassword($password,$repassword){   // test if the user has entered 
 
 
 
-function testEmail($email){                    // test if there is not the same email in the db, return -1 or 0
-     $emailInDB = BDD::get()->query('SELECT user_adress FROM user;')->fetchAll();
-
-     foreach ($emailInDB as $value) {
-       if ($value[0] == $email) {
-         return -1;
-       }
-     }
-     return 0;
+function testEmail($email){                    //takes in parameter the email input by user test if there is not the same email in the db, return -1 (=) or 0 (=/=)
+  $emailInDB = BDD::get()->query('SELECT user_adress FROM user;')->fetchAll();
+  foreach ($emailInDB as $value) {
+    if ($value[0] == $email) {
+      return -1;
+    }
+  }
+  return 0;
 }
 
 
 
-function testInsert($testPassword,$testEmail){
-  if ($testPassword == -1) {
+function testInsert($testPassword,$testEmail){                    //takes in parameter the result of the tests (password and email)
+  if ($testPassword == -1) {                                      //test if we can insert in db, return  0 (can insert) or  the error
     return 'Les 2 mots de passes ne sont pas correspondant';
   }
   if ($testEmail == -1) {
@@ -49,8 +49,8 @@ function testInsert($testPassword,$testEmail){
   return 0;
 }
 
-function insertionDB($email,$password,$name,$firstName,$phone,$birthdate){
-
+function insertionDB($email,$password,$name,$firstName,$phone,$birthdate){        //takes in parameter values that we must insert
+                                                                                  //insert into the db, return the error or 'insert'
   $password = password_hash($password,PASSWORD_DEFAULT);
 
   $PDOuser = BDD::get()->prepare('INSERT INTO user VALUES (NULL, :name, :firstName, :email, :phone, :birthdate, :password)');
@@ -78,5 +78,7 @@ function register($email,$password,$repassword,$name,$firstName,$phone,$birthdat
   }
 }
 
-echo register($email,$password,$repassword,$name,$firstName,$phone,$birthdate);
+register($email,$password,$repassword,$name,$firstName,$phone,$birthdate);
+header('Location: index.php?page=register');
+exit();
 ?>

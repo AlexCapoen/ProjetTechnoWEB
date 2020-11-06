@@ -3,41 +3,38 @@
 include('PDOFactory.php');
 
 
-if (isset($_POST)) {
+if (isset($_POST['login'])) {
   $email = $_POST['email'];
   $password = $_POST['psw'];
 }
 
 
-function isConnected(){                 //return 0 -> no connected, 1 -> connected
-  if ($_SESSION['connected'] == 0) {
-    return 0;
-  }
-  else {
+function isConnected(){                 //test if an user is connected, return 0 -> no connected, 1 -> connected
+  if (isset($_SESSION['connected'])) {
     return 1;
   }
-}
-
-
-function disconnect(){
-  $_SESSION = array();
-  if (isset($_COOKIE[session_name()])) {
-    setcookie(session_name(), '', time()-42000, '/');
+  else {
+    return 0;
   }
-  session_destroy();
 }
 
 
-function connexion($login,$password){
+function disconnect(){             //destroy the variable session
+  $_SESSION = array();
+}
+
+
+function connexion($login,$password){           //takes in parameters login and password, look into db to know if user and password is ok then changes a session varibale and return error or co
   $user = BDD::get()->query('SELECT user_adress,user_password FROM user;')->fetchAll();
   foreach ($user as $value) {
     if ($login == $value[0]) {
-      $mail = $value[0];
-      $passwordHash = $value[1];
+      var_dump($value);
+      $mail = $value['user_adress'];
+      $passwordHash = $value['user_password'];
       echo $mail;
       if (password_verify($password,$passwordHash)) {
         $_SESSION['connected']=1;
-        return 'c est co';
+        return 'Connexion établie';
       }
       else {
         return 'Mot de passe incorrect';
@@ -47,5 +44,7 @@ function connexion($login,$password){
   return 'Adresse mail incorrect';
 }
 
-echo connexion($email,$password);
+connexion($email,$password);
+header('Location: index.php?page=login');
+exit();
  ?>

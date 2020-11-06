@@ -12,11 +12,10 @@
 			    </br>
 	        	<input type="password" class="formBox" placeholder="Enter Password" name="psw" required>
 				</br>
-			 	<button class="buttonLoginRegister" type="submit">Login</button>
+			 	<button class="buttonLoginRegister" type="submit" name='login'>Login</button>
 			    <a id="registerLoginLink" href="index.php?page=register">Register</a>
 	        </form>
 
 		</div>
 	</div>
 </div>
-
