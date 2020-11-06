@@ -82,7 +82,7 @@ function register($email,$password,$repassword,$name,$firstName,$phone,$birthdat
   $result = strval(testInsert($testPass,$testEmail));
   if ($result == "0"){
     insertionDB($email,$password,$name,$firstName,$phone,$birthdate);
-    return 'ca insert';
+    return 'Inscription effectuée';
   }
   else{
     return $result; // str of the error
@@ -106,18 +106,14 @@ function disconnect(){             //destroy the variable session
 
 function connexion($login,$password){           //takes in parameters login and password, look into db to know if user and password is ok then changes a session varibale and return error or co
   disconnect();
-  $user = BDD::get()->query('SELECT user_adress,user_password,user_last_name,user_first_name,user_phone,user_birthdate FROM user;')->fetchAll();
+  $user = BDD::get()->query('SELECT user_id, user_adress,user_password FROM user;')->fetchAll();
   foreach ($user as $value) {
-    if ($login == $value[0]) {
+    if ($login == $value['user_adress']) {
       $email = $value['user_adress'];
       $passwordHash = $value['user_password'];
       if (password_verify($password,$passwordHash)) {
         $_SESSION['connected']=1;
-        $_SESSION['email']=$email;
-        $_SESSION['last_name']=$value['user_last_name'];
-        $_SESSION['first_name']=$value['user_first_name'];
-        $_SESSION['phone']=$value['user_phone'];
-        $_SESSION['birthdate']=$value['user_birthdate'];
+        $_SESSION['user_id']=$value['user_id'];
         return 'Connexion établie';
       }
       else {
