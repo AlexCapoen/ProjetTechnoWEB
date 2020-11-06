@@ -1,7 +1,7 @@
 <div id="loginContainer">
   	<div id="formLogin" class="logging">
-		<form action="checkUser.php" method='POST' class="container">
-		    
+		<form action="checkRegisterAndUser.php" method='POST' class="container">
+
 		    <label  for="email"><b class="itemLogin">Email</b></label>
 		    </br>
         	<input type="text" class="inputForm formBox" placeholder="welcome@quizzeria.fr" name="email" required>
@@ -16,7 +16,7 @@
 		 	</br>
 		 	</br>
 		    <a id="registerLoginLink" href="index.php?page=register">Register</a>
-		    
+
 
         </form>
 

@@ -1,7 +1,7 @@
 <div id="loginContainer">
     <div id="formLogin" class="registering">
-      <form action="checkRegister.php" method='POST' class="container">
-        
+      <form action="checkRegisterAndUser.php" method='POST' class="container">
+
         <label  for="email"><b class="itemLogin">Name</b></label>
         </br>
         <input class="inputForm formBox" type="text" placeholder="John" name="Name" required>
@@ -28,7 +28,7 @@
         <label class="itemLogin" for="psw"><b class="itemLogin">Password</b></label>
         </br>
         <input class="inputForm formBox"  type="password" placeholder="Enter Password" name="psw" required>
-        
+
         </br>
         <input class="inputForm formBox" type="password" placeholder="Confirm Password" name="confirmePsw" required>
         </br>
@@ -41,4 +41,3 @@
     </div>
 
 </div>
-
