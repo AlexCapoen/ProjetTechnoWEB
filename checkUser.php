@@ -25,15 +25,19 @@ function disconnect(){             //destroy the variable session
 
 
 function connexion($login,$password){           //takes in parameters login and password, look into db to know if user and password is ok then changes a session varibale and return error or co
-  $user = BDD::get()->query('SELECT user_adress,user_password FROM user;')->fetchAll();
+  disconnect();
+  $user = BDD::get()->query('SELECT user_adress,user_password,user_last_name,user_first_name,user_phone,user_birthdate FROM user;')->fetchAll();
   foreach ($user as $value) {
     if ($login == $value[0]) {
-      var_dump($value);
-      $mail = $value['user_adress'];
+      $email = $value['user_adress'];
       $passwordHash = $value['user_password'];
-      echo $mail;
       if (password_verify($password,$passwordHash)) {
         $_SESSION['connected']=1;
+        $_SESSION['email']=$email;
+        $_SESSION['last_name']=$value['user_last_name'];
+        $_SESSION['first_name']=$value['user_first_name'];
+        $_SESSION['phone']=$value['user_phone'];
+        $_SESSION['birthdate']=$value['user_birthdate'];
         return 'Connexion établie';
       }
       else {
@@ -45,6 +49,7 @@ function connexion($login,$password){           //takes in parameters login and 
 }
 
 connexion($email,$password);
+
 header('Location: index.php?page=login');
 exit();
  ?>
