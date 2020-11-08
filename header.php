@@ -21,7 +21,7 @@
       </div>
     </div>   
     <?php
-    // Profil de l'utilisateur connecté
+    // Profil de l'utilisateur connecté et boutton disconnect
     if(isconnected()==1){
     ?>
     <div id="userProfil">
@@ -29,18 +29,17 @@
        $user=BDD::get()->query('SELECT user_last_name,user_first_name FROM user WHERE user_id='.$_SESSION["user_id"])->fetchAll();
        echo($user[0]['user_last_name']." ".$user[0]['user_first_name'].'<span id="detailArrow"><i class="fas fa-caret-down"></i></span>');
       ?>
-    </div>
-    <div id="detailButton">
-      <a class="detailElement" href="index.php?page=profil">Profil</a>
+      <div id="detailButton">
+        <a class="detailElement" href="index.php?page=profil">Profil</a>
+      </div>
     </div>
     <?php
+    echo('<form action="index.php" method="post"><button id="decoButtun" name="deconnexion" type="submit" ><i class="fas fa-sign-out-alt"></i>Logout</button></form>');
     }
     ?>
     <?php
-    //boutton login ou disconnect
-    if(isconnected()==1){
-      echo('<form action="index.php" method="post"><p><input id="decoButtun" name="deconnexion" type="submit" value="Log Out" /></p></form>');
-    }else{
+    //boutton login
+    if(isconnected()==0){
       echo('<a class="navlink" id="loginLink" href="index.php?page=login"><i class="fas fa-user-circle"></i>Log In</a>');
     }
     ?>
