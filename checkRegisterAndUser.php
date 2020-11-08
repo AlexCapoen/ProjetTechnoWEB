@@ -1,32 +1,5 @@
 <?php
 
-include('PDOFactory.php');
-
-if (isset($_POST['register'])) {
-  $email = $_POST['email'];
-  $name = $_POST['Name'];
-  $firstName = $_POST['FirstName'];
-  $password = $_POST['psw'];
-  $repassword = $_POST['confirmePsw'];
-  $phone = $_POST['phone'];
-  $birthdate = $_POST['birthdate'];
-
-  setcookie("returnRegister",register($email,$password,$repassword,$name,$firstName,$phone,$birthdate),time()+3);
-  header('Location: index.php?page=register');
-  exit();
-}
-
-if (isset($_POST['login'])) {
-  $email = $_POST['email'];
-  $password = $_POST['psw'];
-
-  setcookie("returnLogin",connexion($email,$password),time()+3);
-  header('Location: index.php?page=login');
-  exit();
-}
-
-
-
 function testPassword($password,$repassword){   //takes in parameter the 2 passwords inputby the user
   if ($password != $repassword) {               //test if the user has input the same password twice, return -1 (=/=) or 0 (=)
     return -1;
@@ -35,8 +8,6 @@ function testPassword($password,$repassword){   //takes in parameter the 2 passw
     return 0;
   }
 }
-
-
 
 function testEmail($email){                    //takes in parameter the email input by user test if there is not the same email in the db, return -1 (=) or 0 (=/=)
   $emailInDB = BDD::get()->query('SELECT user_adress FROM user;')->fetchAll();
@@ -48,14 +19,12 @@ function testEmail($email){                    //takes in parameter the email in
   return 0;
 }
 
-
-
 function testInsert($testPassword,$testEmail){                    //takes in parameter the result of the tests (password and email)
   if ($testPassword == -1) {                                      //test if we can insert in db, return  0 (can insert) or  the error
-    return 'Les 2 mots de passes ne sont pas correspondant';
+    return 'Les 2 mots de passes ne correspondent pas';
   }
   if ($testEmail == -1) {
-    return "L'adresse mail est deja utilisée";
+    return "Adresse mail déja utilisée";
   }
   return 0;
 }
@@ -82,7 +51,7 @@ function register($email,$password,$repassword,$name,$firstName,$phone,$birthdat
   $result = strval(testInsert($testPass,$testEmail));
   if ($result == "0"){
     insertionDB($email,$password,$name,$firstName,$phone,$birthdate);
-    return 'Inscription effectuée';
+    return 'Inscription effectuée, connectez-vous : ';
   }
   else{
     return $result; // str of the error
@@ -123,4 +92,51 @@ function connexion($login,$password){           //takes in parameters login and 
   }
   return 'Adresse mail incorrect';
 }
+
+
+//---------------------------------------Deconnexion check----------------------------------
+if(isset($_POST["deconnexion"])){
+    disconnect();
+    header('Location: index.php?page=home');
+
+}
+
+//---------------------------------------User check----------------------------------
+
+if (isset($_POST['register'])) {
+  $email = $_POST['email'];
+  $name = $_POST['Name'];
+  $firstName = $_POST['FirstName'];
+  $password = $_POST['psw'];
+  $repassword = $_POST['confirmePsw'];
+  $phone = $_POST['phone'];
+  $birthdate = $_POST['birthdate'];
+
+  $register=register($email,$password,$repassword,$name,$firstName,$phone,$birthdate);
+  setcookie("returnRegister",$register,time()+3);
+
+  if ($register=="Les 2 mots de passes ne correspondent pas"||$register=="Adresse mail déja utilisée"){
+    header('Location: index.php?page=register');
+  }else{
+    header('Location: index.php?page=login');
+  }
+}
+
+//----------------------------------------Register check---------------------------------
+if(isConnected()==0){
+    if (isset($_POST['login'])) {
+        $email = $_POST['email'];
+        $password = $_POST['psw'];
+
+          setcookie("returnLogin",connexion($email,$password),time()+3);
+        if (isConnected()==1){
+            header('Location: index.php?page=home');
+
+        }else{
+            header('Location: index.php?page=login');
+        }
+    }
+}
+
+
 ?>

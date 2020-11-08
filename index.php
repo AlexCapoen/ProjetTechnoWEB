@@ -12,9 +12,14 @@
 
 <?php
 session_start();
+
+//--------------------------------------Include-------------------------------
 include('PDOFactory.php');
-include('header.php');
 include('displayFonctions.php');
+include('checkRegisterAndUser.php');
+include('header.php');
+
+//----------------------------------------Redirection---------------------------------------
 
 if(!isset($_GET['page'])){
     $page=' ';
@@ -29,10 +34,18 @@ switch ($page) {
         include('main.php');
         break;
     case "quizz":
-        include('quizz.php');
+        if(isconnected()==1){
+            include('quizz.php');
+        }else{
+             echo('<script>alert("Connexion requise pour accéder aux quizzs");window.location.href="index.php";</script>');            
+        }
         break;
     case "reponse":
-        include('reponsequizz.php');
+        if(isconnected()==1){
+            include('reponsequizz.php');
+        }else{
+            echo('<script>alert("Connexion requise pour accéder aux réponses des quizzs");window.location.href="index.php";</script>');            
+        }
         break;
     case "login":
         include('login.php');

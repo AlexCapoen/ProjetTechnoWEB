@@ -1,4 +1,5 @@
 <?php
+	//from stackoverflow
 	class BDD{
 		private static $connexion;
 			public static function get(){

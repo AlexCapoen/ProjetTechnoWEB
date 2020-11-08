@@ -1,6 +1,6 @@
 <div id="loginContainer">
     <div id="formLogin" class="registering">
-      <form action="checkRegisterAndUser.php" method='POST' class="container">
+      <form action="index.php" method='POST' class="container">
 
         <label  for="email"><b class="itemLogin">Name</b></label>
         </br>
@@ -10,25 +10,36 @@
         <input class="inputForm formBox" type="text" placeholder="CENA" name="FirstName" required>
         </br>
 
-        <label  for="email"><b class="itemLogin">Email</b></label>
+        <label  for="email"><b class="itemLogin">Email <?php
+        if(isset($_COOKIE["returnRegister"])){
+            if($_COOKIE["returnRegister"]=="Adresse mail déja utilisée"){
+                echo('<p class="connecError">'.$_COOKIE["returnRegister"].'</p>');
+            }
+        }   
+        ?> 
+        </b></label>
         </br>
         <input type="email" class="inputForm formBox" placeholder="welcome@quizzeria.com" name="email" required>
         </br>
-
         <label  for="email"><b class="itemLogin">Phone</b></label>
         </br>
-        <input type="tel" class="inputForm formBox" placeholder="06 90 12 34 56" name="phone" required>
+        <input type="text" class="inputForm formBox" placeholder="06 90 12 34 56" name="phone" required>
         </br>
-
         <label  for="email"><b class="itemLogin">Birthdate</b></label>
         </br>
         <input type="datetime-local" class="inputForm formBox" placeholder="01/01/1945" name="birthdate" required>
         </br>
 
-        <label class="itemLogin" for="psw"><b class="itemLogin">Password</b></label>
+        <label class="itemLogin" for="psw"><b class="itemLogin">Password <?php
+        if(isset($_COOKIE["returnRegister"])){
+            if($_COOKIE["returnRegister"]=="Les 2 mots de passes ne correspondent pas"){
+                echo('<p class="connecError">'.$_COOKIE["returnRegister"].'</p>');
+            }
+        } 
+        ?>
+        </b></label>
         </br>
         <input class="inputForm formBox"  type="password" placeholder="Enter Password" name="psw" required>
-
         </br>
         <input class="inputForm formBox" type="password" placeholder="Confirm Password" name="confirmePsw" required>
         </br>

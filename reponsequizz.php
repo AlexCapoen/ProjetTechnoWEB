@@ -1,6 +1,6 @@
 <div class='container'>
   <?php
-    afficherrep($_GET['id']);
+    afficherRep($_GET['id']);
   ?>
 </div>
 
