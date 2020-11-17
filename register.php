@@ -27,7 +27,7 @@
         </br>
         <label  for="email"><b class="itemLogin">Birthdate</b></label>
         </br>
-        <input type="datetime-local" class="inputForm formBox" placeholder="01/01/1945" name="birthdate" required>
+        <input type="date" class="inputForm formBox" placeholder="01/01/1945" name="birthdate" required>
         </br>
 
         <label class="itemLogin" for="psw"><b class="itemLogin">Password <?php
