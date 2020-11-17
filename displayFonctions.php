@@ -68,7 +68,7 @@ function afficherQuizz($quizzId){
 
       foreach ($response as $key2 => $answer) {
        $compans=$compans+1;
-       echo("<div> <input class='checkboxElmnt' type='checkbox' id='rep".$compans."1q1' name='Question".$question[$comp-1]['question_id']."[]' value=".$answer['answer_id']."> <label for='rep1q1'>".$answer['answer_text']."</label></div>");
+       echo("<div> <input class='checkboxElmnt' type='checkbox' id='rep".$compans."1q1' name='Question".$question[$comp-1]['question_id']."[]' value=".$answer['answer_id']." > <label for='rep1q1'>".$answer['answer_text']."</label></div>");
       }
 
       echo('</div>');
@@ -83,7 +83,7 @@ function afficherQuizz($quizzId){
 
       printTitle ($quizzId,$comp,$line,$questionExacte);
 
-      echo('<input id="GET-name" class="input" type="number" name="Question'.$question[$comp-1]['question_id'].'">');
+      echo('<input id="GET-name" class="input" type="number" name="Question'.$question[$comp-1]['question_id'].'" require>');
       echo('</div>');
     }
 
@@ -99,7 +99,7 @@ function afficherQuizz($quizzId){
       $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
 
       foreach ($response as $key2 => $answer) {
-        echo('<input type="radio" class="radioElmnt" name="Question'.$question[$comp-1]['question_id'].'" value='.$answer['answer_id'].' class="radio"> <label for="radio">'.$answer['answer_text'].'</label> <br/>');
+        echo('<input type="radio" class="radioElmnt" name="Question'.$question[$comp-1]['question_id'].'" value='.$answer['answer_id'].' class="radio"> <label for="radio" require>'.$answer['answer_text'].'</label> <br/>');
       }
 
       echo('</div>');
@@ -271,7 +271,7 @@ function afficherRep($quizzId){
     }
 
 
-    // ---------------------------radio------------------------------------------//
+    // -------------------------------------radio------------------------------------------//
 
 
     if($line['question_input_type']=='radio'){

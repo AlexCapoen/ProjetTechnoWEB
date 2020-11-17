@@ -41,7 +41,7 @@ function testEmail($email){                      //takes in parameter the email 
 
 function testInsert($testPassword,$testEmail){                    //takes in parameter the result of the tests (password and email)
   if ($testPassword == -1) {                                      //test if we can insert in db, return  0 (can insert) or  the error
-    return 'Les 2 mots de passes ne sont pas correspondant';
+    return 'Les 2 mots de passes ne sont pas correspondants';
   }
   if ($testEmail == -1) {
     return "L'adresse mail est deja utilisée";
