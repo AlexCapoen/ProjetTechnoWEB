@@ -5,7 +5,7 @@
   font-family: "Montserrat",sans-serif;
   padding :0;
   margin:0;
-  --colorSite: #d50000 ;
+  --colorSite: #e24d4d ;
   --secColor:#413939;
   scroll-behavior: smooth;
 }
@@ -78,11 +78,11 @@ body{
     transition:0.5s;
 }
 #quizzAnimalsImg:hover~#quizzAnimalsButton{
-    opacity :0.7;
+    opacity :1;
 }
 
 #quizzHistoryImg:hover~#quizzHistoryButton{
-    opacity :0.7;
+    opacity :1;
 }
 
 #quizzHistoryButton, #quizzAnimalsButton{
@@ -91,7 +91,7 @@ body{
 
 .button:hover{
 
-    opacity :0.7;
+    opacity :1;
 }
 a.link{
 	text-decoration: none;
@@ -114,11 +114,9 @@ header{
 	height: 15vh;
 	width: 100%;
 	background-color : var(--colorSite);
-	opacity: 0.7;
 }
 
 #headerContent{
-	opacity: 1;
 	color :white;
 }
 
@@ -201,6 +199,7 @@ header{
   color: white;
   text-decoration: none;
   padding: 5%;
+  text-align: center;
 }
 
 .navElement:hover{
@@ -231,7 +230,6 @@ header{
 }
 #decoButtun{
 	background-color: var(--colorSite);
-	opacity: 0.7;
 	color :white;
 	font-weight: 600;
 	letter-spacing: 2px;
@@ -271,7 +269,7 @@ header{
 	position: fixed;
 	bottom :0px;
 	background-color: var(--colorSite);
-	opacity: 0.7;
+
 	display : flex;
 	justify-content: center;
 }
@@ -306,13 +304,11 @@ header{
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   border-radius: 10%;
-  opacity: 0.7;
   font-weight: bolder;
 }
 
 .validcontainer:hover{
   border-color: var(--colorSite);
-  opacity: 0.7;
   background-color: white;
   color: var(--colorSite);
   font-weight: bold;
@@ -358,7 +354,6 @@ header{
 	letter-spacing: 2px;
 	background-color: var(--colorSite);
 	color : white;
-	opacity : 0.7;
 	border: 1px solid var(--colorSite);
 	border-radius: 7px;
 	padding: 2px;
@@ -367,7 +362,6 @@ header{
 .buttonQuizzChoice:hover{
 	background-color: white;
 	color : var(--colorSite);
-	opacity : 0.7;
 	border: 1px solid var(--colorSite);
 	transition: 0.5s;
 }
@@ -424,7 +418,7 @@ border-radius:0.2em;
 	padding : 10px;
 	border : 3px solid var(--colorSite);
 	border-radius: 10px;
-	opacity: 0.7;
+
 }
 
 .boutonSubmit{
@@ -438,13 +432,11 @@ border-radius:0.2em;
   color: white;
   padding: 5%;
   border-radius: 15%;
-  opacity: 0.7;
   font-weight: bolder;
 }
 
 .buttonSubmit:hover{
   border-color: var(--secColor);
-  opacity: 0.7;
   background-color: var(--secColor);
   color: white ;
   font-weight: bold;
