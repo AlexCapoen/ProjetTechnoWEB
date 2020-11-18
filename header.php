@@ -5,15 +5,26 @@
       <br/>
       <div id="linkContainer">
         <div>
-          <a id="headerA" class="navlink" href="index.php?page=home">Home</a>
+          <a class="navlink " href="index.php?page=home">Accueil</a>
         </div>
-        <div id="quizz">
-          <p id="headerA" class="navlink">Quizz</p>
+        <div class="navDown">
+          <p class="navlink">Quizz</p>
           <div class="navQuizz">
             <?php
             $quizz=BDD::get()->query('SELECT quizz_id FROM quizz')->fetchAll();
             foreach ($quizz as $key => $quizzIndex) {
-              echo('<a class="quizzElement" href="index.php?page=quizz&id='.$quizzIndex['quizz_id'].'">Quizz '.$quizzIndex['quizz_id'].'</a>');
+              echo('<a class="navElement" href="index.php?page=quizz&id='.$quizzIndex['quizz_id'].'">Quizz '.$quizzIndex['quizz_id'].'</a>');
+            }
+            ?>
+          </div>
+        </div>
+        <div class="navDown">
+          <p  class="navlink ">Résumé</p>
+          <div class="navQuizz">
+            <?php
+            $quizz=BDD::get()->query('SELECT quizz_id FROM quizz')->fetchAll();
+            foreach ($quizz as $key => $quizzIndex) {
+              echo('<a class="navElement" href="index.php?page=resume&id='.$quizzIndex['quizz_id'].'">Quizz '.$quizzIndex['quizz_id'].'</a>');
             }
             ?>
           </div>

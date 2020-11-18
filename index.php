@@ -58,6 +58,9 @@ switch ($page) {
     case("aboutUs"):
         include('aboutUs.php');
         break;
+    case("resume"):
+        include('resume.php');
+        break;
 
     default:
         include('main.php');

@@ -98,10 +98,9 @@ function connexion($login,$password){           //takes in parameters login and 
 if(isset($_POST["deconnexion"])){
     disconnect();
     header('Location: index.php?page=home');
-
 }
 
-//---------------------------------------User check----------------------------------
+//---------------------------------------Register check----------------------------------
 
 if (isset($_POST['register'])) {
   $email = $_POST['email'];
@@ -122,18 +121,18 @@ if (isset($_POST['register'])) {
   }
 }
 
-//----------------------------------------Register check---------------------------------
+//----------------------------------------User check---------------------------------
 if(isConnected()==0){
     if (isset($_POST['login'])) {
         $email = $_POST['email'];
         $password = $_POST['psw'];
 
-          setcookie("returnLogin",connexion($email,$password),time()+3);
+        setcookie("returnLogin",connexion($email,$password),time()+3);
         if (isConnected()==1){
-            header('Location: index.php?page=home');
+          header('Location: index.php?page=home');
 
         }else{
-            header('Location: index.php?page=login');
+          header('Location: index.php?page=login');
         }
     }
 }
