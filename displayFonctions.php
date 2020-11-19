@@ -53,12 +53,14 @@ function comparison($question_id,$answerArray){
         $compGoodAns=$compGoodAns+1;
       }
     }
+
   // Special case of checkbox because several answer possible
     if ($question[0]['question_input_type']=='checkbox'){
       $compCheck=0;
       foreach ($answerArray['Question'.$question[0]['question_id']] as $checkboxAnswer){
         $compCheck+=1;
         $givenAnswer=BDD::get()->query('SELECT is_valid_answer FROM answer WHERE answer_id ='.$checkboxAnswer)->fetchAll();
+
         if($givenAnswer[0]['is_valid_answer']==0){
           return ['MauvaiseReponse', 'badAnswer'];
         }
@@ -83,7 +85,14 @@ function comparison($question_id,$answerArray){
     }            
   }
 
+function answerTab($userId){
 
+  $tabAnswer=BDD::get()->query('SELECT * FROM user_answer WHERE user_id ='.$userId.'')->fetchAll();;
+  var_dump($tabAnswer);
+
+}
+
+// answerTab(2);
 
 
 
@@ -103,6 +112,7 @@ function printTitleRep($quizzId,$comp,$line,$exactQuestion){
 
   echo("<div id='question ".$comp."_quizz".$quizzId."' class='questionQuizz ".$exactQuestion."'>");
   echo("<p class='titreQuestion'>Question ".$comp." : ".$line['question_title']."</p><p class='".comparison($line['question_id'],$_POST)[1]."'>".comparison($line['question_id'],$_POST)[0]."</p>");
+
   if(comparison($line['question_id'],$_POST)[0]=="Bonne Reponse"){
     return 1;
   }else{
@@ -360,7 +370,11 @@ function afficherRep($quizzId){
   echo('<div id="userScore">Votre score : '.$userScore.'/'.$comp.'</div>');
   echo('<div class="boutonSubmit"><a href="index.php?page=home"> <input type="submit" value="Home"class="buttonSubmit"></a></div>)');
   /*end submit button*/
-  
+
+
+  // var_dump($_POST);
+
+
   echo("</div>");/*end div questionContent*/
 
   echo("</div>");/*end div content*/
