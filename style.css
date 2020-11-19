@@ -20,11 +20,10 @@ html,
 body{
 	height:100%;
 }
+
 #container{
 	height :100vh;
 }
-
-
 
 #content{
 	height: 78vh;
@@ -274,9 +273,6 @@ header{
 	justify-content: center;
 }
 
-
-
-
 #footerContent .navlink{
 	color :white;
 	font-size: 1rem;
@@ -294,8 +290,6 @@ header{
 	padding  : 5px;
 	background-color: white;
 }
-
-
 
 .validcontainer{
   text-decoration: none;
@@ -443,7 +437,6 @@ border-radius:0.2em;
   transition: 0.5s;
 }
 
-
 .q1f1{
 	background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('Img/q1f1.jpg');
 	/*background-image: url('Img/q1f1.jpg');*/
@@ -513,9 +506,6 @@ border-radius:0.2em;
 
 
 
-
-
-
 /*_________________________LOGIN / REGISTER__________________________*/
 
 #loginContainer{
@@ -572,7 +562,6 @@ border-radius:0.2em;
 	border-radius: 7px;
 	transition: 0.5s;
 	cursor:pointer;
-
 }
 
 input[type=text], input[type=password] {
@@ -613,4 +602,8 @@ align-self: flex-end;
 	color : #00E500;
 	font-size: 1rem;
 	font-weight :600;
+}
+
+#dateOfSubmit{
+	display : none ;
 }

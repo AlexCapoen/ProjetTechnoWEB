@@ -13,18 +13,16 @@
         <input class="buttonQuizzChoice" type="submit" name="result" value="Afficher les résultats" />
       </form>
     </div>
-
     <?php
       if (isset($_POST['affiche'])){
-        // var_dump(($_POST));
-        afficherQuizz($_GET['id']);
+        $today=getdate();
+        $todayFormat = date($today['year']."-".$today['mon']."-".$today['mday']." ".$today['hours'].":".$today['minutes'].":".$today['seconds']);
+        afficherQuizz($_GET['id'],$todayFormat);
       }
       if (isset($_POST['result'])){
-        // $today=getdate();
-        
-        // var_dump(($today));
-        
-        // header('Location: index.php?page=reponse&id='.$_GET['id']);
+        $userAnswer = BDD::get()->query('SELECT answer_id FROM user_answer WHERE user_id='.$_SESSION['user_id'])->fetchAll();
+        var_dump($userAnswer);
+        //header('Location: index.php?page=reponse&id='.$_GET['id']);
       }
     ?>    
   </div>

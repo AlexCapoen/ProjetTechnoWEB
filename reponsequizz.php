@@ -1,13 +1,7 @@
 <div class='container'>
-
-	<script type="text/javascript">
-
-
-
-	</script>
 	<?php
-	
-    afficherRep($_GET['id']);
+		stockAnswer($_GET['id']);
+		afficherRep($_GET['id']);
 	?>
 </div>
 
