@@ -90,6 +90,8 @@ function answerTab($userId){
   $tabAnswer=BDD::get()->query('SELECT * FROM user_answer WHERE user_id ='.$userId.'')->fetchAll();;
   var_dump($tabAnswer);
 
+  // TODO il manque la question 3 dans la bdd. Pour cette fonction il faut juste creer un big tab qu'on remplit avec des tab formaté comme $_POST ; il faut alors créer un petit tab préformatté que l'on remplit puis ecrase dans un for ou foreach
+
 }
 
 // answerTab(2);
