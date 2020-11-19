@@ -11,6 +11,7 @@
         </br>
 
         <label  for="email"><b class="itemLogin">Email <?php
+        
         if(isset($_COOKIE["returnRegister"])){
             if($_COOKIE["returnRegister"]=="Adresse mail déja utilisée"){
                 echo('<p class="connecError">'.$_COOKIE["returnRegister"].'</p>');

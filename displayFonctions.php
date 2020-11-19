@@ -1,12 +1,12 @@
 <?php
 
-function printTitle ($quizzId,$comp,$line,$exactQuestion){
+function printTitle($quizzId,$comp,$line,$exactQuestion){
 
   echo("<div id='question ".$comp."_quizz".$quizzId."' class='questionQuizz ".$exactQuestion."'>");
   echo("<p class='titreQuestion'>Question ".$comp." : ".$line['question_title']."</p>");
 }
 
-function printTitleRep ($quizzId,$comp,$line,$exactQuestion){
+function printTitleRep($quizzId,$comp,$line,$exactQuestion){
 
   echo("<div id='question ".$comp."_quizz".$quizzId."' class='questionQuizz ".$exactQuestion."'>");
   echo("<p class='titreQuestion'>Question ".$comp." : ".$line['question_title']."</p><p class='".comparison($line['question_id'],$_POST)[1]."'>".comparison($line['question_id'],$_POST)[0]."</p>");
@@ -105,8 +105,10 @@ function afficherQuizz($quizzId){
   /*question quizz end*/
   /*start submit button*/
 
-  echo('<div class="boutonSubmit"><a href=""> <input type="submit" value="answerQuizz"class="buttonSubmit"></a></div>');
+  echo('<div class="boutonSubmit"><a href=""> <input type="submit" value="answerQuizz" id="submitButton" class="buttonSubmit"></a></div>');
 
+
+  
   /*end submit button*/
   echo("</div>");/*end div questionContent*/
   echo('</form>');
@@ -120,7 +122,9 @@ function comparison($question_id,$answerArray){
   /*args : question_id of the current question being displayed, an array of all the answers of the user for this quizz
     return : an array of 2 dim, [0] : actual text to display ( bonne reponse / mauvaise reponse), [1] : class name to style this text 
   */
+    // $timeSubmit_php = '<script type="text/javascript">document.write(datte);</script>';
 
+  
     $response = BDD::get()->query('SELECT answer_id,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$question_id)->fetchAll();
     $question = BDD::get()->query('SELECT question_input_type , question_id FROM question WHERE question_id ='.$question_id)->fetchAll();
   //count all the possible answer to this question
@@ -166,6 +170,8 @@ function afficherRep($quizzId){
   /*args : quizz id of the current quizz we need to display answers
   return : nothing*/
   /*titre et contenu*/
+  $today=getdate();
+  echo ('<div id="dateOfSubmit"><input value='.$today[0].'></div>');
   $userScore=0;
   $quizz = BDD::get()->query('SELECT quizz_name FROM quizz;')->fetchAll();
   echo('<div id="content"><div id="titrePage"><h2>Quizz '.$quizz[$quizzId-1]['quizz_name'].'</h2></div>');
@@ -256,7 +262,7 @@ function afficherRep($quizzId){
 
       //User answer :
       echo('<p>Votre Réponse : </p>');
-      echo('<input id="GET-name" value="'.$_POST[$stringQuestionId].'" type="text" name="name">');
+      echo('<input value="'.$_POST[$stringQuestionId].'" type="text" name="name">');
 
 
       //Good answer 

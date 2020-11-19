@@ -13,12 +13,18 @@
         <input class="buttonQuizzChoice" type="submit" name="result" value="Afficher les résultats" />
       </form>
     </div>
+
     <?php
       if (isset($_POST['affiche'])){
+        // var_dump(($_POST));
         afficherQuizz($_GET['id']);
       }
       if (isset($_POST['result'])){
-        header('Location: index.php?page=reponse&id='.$_GET['id']);
+        // $today=getdate();
+        
+        // var_dump(($today));
+        
+        // header('Location: index.php?page=reponse&id='.$_GET['id']);
       }
     ?>    
   </div>

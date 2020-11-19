@@ -15,7 +15,7 @@
 <?php
 session_start();
 
-//--------------------------------------Include-------------------------------
+//--------------------------------------Includes-------------------------------
 include('PDOFactory.php');
 include('displayFonctions.php');
 include('checkRegisterAndUser.php');
@@ -45,6 +45,7 @@ switch ($page) {
     case "reponse":
         if(isconnected()==1){
             include('reponsequizz.php');
+
         }else{
             echo('<script>alert("Connexion requise pour accéder aux réponses des quizzs");window.location.href="index.php";</script>');            
         }
@@ -58,6 +59,7 @@ switch ($page) {
     case("aboutUs"):
         include('aboutUs.php');
         break;
+        
     case("resume"):
         include('resume.php');
         break;
