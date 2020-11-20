@@ -93,7 +93,7 @@ function answerTab($userId,$quizz){
   
   $postList=[];
   if($quizz==1) {
-    $comp=1;
+    
     $answers=BDD::get()->query('SELECT * FROM answer')->fetchAll();
 
     $dateList=BDD::get()->query('SELECT user_answer_date FROM user_answer')->fetchAll();
@@ -106,22 +106,21 @@ function answerTab($userId,$quizz){
           echo "avant boucle";
           echo "j",$j;
           if($dateList[$i]==$dateList[$j]){ //D'ou c'est undefined merde MAJ : Les indices NE se mettent PAS a jour !! 
+          //debug
             echo "j",$j;
             var_dump($dateList[$j]);
+
             unset($dateList[$j]);
-            // $j=$j-1;
+        
           }
           
         }
-
-        // $verif=;
-        // $tmp=$dateList[$j];
         
       }
     
-      var_dump($dateList);
+      var_dump($dateList); //Il faut actualiser les indices ou incrementer i de 4 (il faut vraiment actualiser les indices pour que ce soit opti)
 
-      //Partie qu'il faudra un peu changer pour le grace à datList qui aura toutes les differentes dates et donc count(datelist) = nombre de differents quizz1 (quizz2)!
+      //Partie qu'il faudra un peu changer pour le grace à dateList qui aura toutes les differentes dates et donc count(datelist) = nombre de differents quizz1 (quizz2)!
       
       foreach($answers as $key=>$answer){
         // echo "answerdb";
