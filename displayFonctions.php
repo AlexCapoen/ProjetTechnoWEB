@@ -22,6 +22,7 @@ function stockAnswer($quizzid){
   if (isset($_POST['answerQuizz'])){
 
     $questionTab = BDD::get()->query('SELECT question_input_type , question_id FROM question WHERE question.question_quizz_id ='.$quizzid)->fetchAll();
+    // var_dump($questionTab);
 
     foreach ($questionTab as $key => $question) {
       if ($question['question_input_type']=='checkbox'){
@@ -60,7 +61,6 @@ function comparison($question_id,$answerArray){
       foreach ($answerArray['Question'.$question[0]['question_id']] as $checkboxAnswer){
         $compCheck+=1;
         $givenAnswer=BDD::get()->query('SELECT is_valid_answer FROM answer WHERE answer_id ='.$checkboxAnswer)->fetchAll();
-
         if($givenAnswer[0]['is_valid_answer']==0){
           return ['MauvaiseReponse', 'badAnswer'];
         }
@@ -85,16 +85,95 @@ function comparison($question_id,$answerArray){
     }            
   }
 
-function answerTab($userId){
+function answerTab($userId,$quizz){
 
-  $tabAnswer=BDD::get()->query('SELECT * FROM user_answer WHERE user_id ='.$userId.'')->fetchAll();;
-  var_dump($tabAnswer);
+  $tabAnswer=BDD::get()->query('SELECT * FROM user_answer WHERE user_id ='.$userId.'')->fetchAll();
+  // var_dump($tabAnswer);
+  
+  
+  $postList=[];
+  if($quizz==1) {
+    $comp=1;
+    $answers=BDD::get()->query('SELECT * FROM answer')->fetchAll();
 
+    $dateList=BDD::get()->query('SELECT user_answer_date FROM user_answer')->fetchAll();
+    // var_dump($dateList);
+
+    for($i=0 ; $i <=count($dateList)-2;$i++) {
+      var_dump($dateList);
+      for($j=$i+1 ; $j <=count($dateList)-1;$j++) {
+
+          echo "avant boucle";
+          echo "j",$j;
+          if($dateList[$i]==$dateList[$j]){ //D'ou c'est undefined merde MAJ : Les indices NE se mettent PAS a jour !! 
+            echo "j",$j;
+            var_dump($dateList[$j]);
+            unset($dateList[$j]);
+            // $j=$j-1;
+          }
+          
+        }
+
+        // $verif=;
+        // $tmp=$dateList[$j];
+        
+      }
+    
+      var_dump($dateList);
+
+      //Partie qu'il faudra un peu changer pour le grace à datList qui aura toutes les differentes dates et donc count(datelist) = nombre de differents quizz1 (quizz2)!
+      
+      foreach($answers as $key=>$answer){
+        // echo "answerdb";
+        // var_dump($answer);
+
+        foreach($tabAnswer as $key2=>$post){
+            // echo "post";
+            // var_dump($post);
+
+            if($answer['answer_id']==$post['answer_id']){ //Si on est à une certaine réponse, on regarde à quelle question elle appartient
+
+              $questionNumber=$answer['answer_question_id']; //On récupère le numéro de la question correspondante !
+
+              // echo ('questionNumber :'.$questionNumber.'');
+
+
+              //On fait une liste si on est à la question 2 ou 8
+
+              if ($questionNumber== 2 || $questionNumber== 8 ){
+
+                $answerIdList= BDD::get()->query('SELECT answer_id FROM answer WHERE answer_question_id ='.$questionNumber.'')->fetchAll(); //Toutes les reponses possibles pour la question checkbox
+                
+                // var_dump($answerIdList);
+
+              }
+              // $postList['Question1']=$post['user_answer_id'];
+            }
+
+            // if($questions['question_id']==2){
+
+
+            // }
+
+          }
+
+      }
+
+      
+
+      
+
+      // $tab=['Question1'=> $value[]]
+    
+  }
+  elseif($quizz==2){
+
+  }
+  
   // TODO il manque la question 3 dans la bdd. Pour cette fonction il faut juste creer un big tab qu'on remplit avec des tab formaté comme $_POST ; il faut alors créer un petit tab préformatté que l'on remplit puis ecrase dans un for ou foreach
 
 }
 
-// answerTab(2);
 
 
 
@@ -375,6 +454,7 @@ function afficherRep($quizzId){
 
 
   // var_dump($_POST);
+  answerTab(2,1);
 
 
   echo("</div>");/*end div questionContent*/
