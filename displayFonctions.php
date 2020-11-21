@@ -173,6 +173,10 @@ function answerTab($userId,$quizz){
 
 }
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 
 
