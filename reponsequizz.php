@@ -7,7 +7,7 @@
 			afficherRep($_GET['id'],$answerTab);
 		}
 		/*return home button*/
-		echo('<div class="boutonSubmit"><a href="index.php?page=home"> ACCUEIL </a></div>)');
+		echo('<div class="boutonSubmit"><a id="bouton_accueil"href="index.php?page=home"> ACCUEIL </a></div>)');
 		echo("</div");
 	?>
 </div>
