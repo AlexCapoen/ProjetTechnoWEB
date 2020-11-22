@@ -58,25 +58,27 @@
     //var_dump($result);
 
     function resumeScoreQuizzAllUser($quizzId){
+      $ScoreTotal=0;
+      $comptUser=0;
+      $BigMean=0;
       $rankedList=[];
       $i=0;
       $userTab = BDD::get()->query('SELECT user_id,user_last_name, user_first_name FROM user')->fetchAll();
-      // var_dump($userTab);
+      
       foreach ($userTab as $key => $user) {
-        echo($user['user_id']);
+        
 
         $returnScore=resumeScoreQuizzUser($_GET['id'],$user['user_id']);
-        // TODO calcul BigMean
-        
-        // echo "return score";
-        // var_dump($returnScore);
 
         if($returnScore[2] == 0){
 
-          echo('pas de reponse');
+          // que faire si pas de truc?
         }
 
         else{ //S'il a déja essayé ! 
+          $ScoreTotal+=$returnScore[0];
+          $comptUser+=1;
+
           $userName=[];
           $userName['user_last_name']=$user['user_last_name'];
           $userName['user_first_name']=$user['user_first_name'];
@@ -84,7 +86,7 @@
           $scoreMaxUser=$returnScore[0];
           $dateMax=$returnScore[4];
           // echo 'score';
-          // // var_dump($scoreMaxUser);
+          // var_dump($scoreMaxUser);
           // echo('vla les reponse');
 
           $rankedList[$i]=[$userName,$scoreMaxUser,$dateMax];
@@ -92,13 +94,24 @@
         }
         
         
+        
       }
-      var_dump($rankedList);
+      rsort($rankedList);
+      $BigMean=$ScoreTotal/$comptUser;
+      return[$BigMean,$comptUser,$rankedList];
 
     }
-    resumeScoreQuizzAllUser($_GET['id']);
-    
 
+    //TODO affichage des scores 
+    //$resultUser=resumeScoreQuizzUser($_GET['id'],$_SESSION['user_id']);
+    //$resultUser[0] = score max
+    //$resultUser[1] = moyenne du user
+    //$resultUser[2] = nombre de quizz du user
+    //$resultUser[3] = nombre de question du quizz
+    //$resultAllUser = resumeScoreQuizzAllUser($_GET['id'])
+    //$resultAllUser[0] = moyenne de tt les users
+    //$resultAllUser[1] = nombre de user qui ont rep au quizz
+    //$resultAllUser[2] = liste des user quit on rep au quizz ranked selon le resultat
   ?>
 </div>
 
