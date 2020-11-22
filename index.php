@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -39,8 +37,8 @@ switch ($page) {
         if(isconnected()==1){
             include('quizz.php');
         }else{
-             echo('<script>alert("Connexion requise pour accéder aux quizzs")</script>'); 
-             header("Refresh:0; url=index.php");           
+             echo('<script>alert("Connexion requise pour accéder aux quizzs")</script>');
+             header("Refresh:0; url=index.php");
         }
         break;
     case "reponse":
@@ -48,8 +46,8 @@ switch ($page) {
             include('reponsequizz.php');
 
         }else{
-            echo('<script>alert("Connexion requise pour accéder aux réponses des quizzs")</script>');  
-            header("Refresh:0; url=index.php");          
+            echo('<script>alert("Connexion requise pour accéder aux réponses des quizzs")</script>');
+            header("Refresh:0; url=index.php");
         }
         break;
     case "login":
@@ -61,7 +59,7 @@ switch ($page) {
     case("aboutUs"):
         include('aboutUs.php');
         break;
-        
+
     case("resume"):
         include('resume.php');
         break;

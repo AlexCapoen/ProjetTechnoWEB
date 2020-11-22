@@ -154,6 +154,7 @@ CREATE TABLE IF NOT EXISTS `user_answer` (
   `user_id` int(11) NOT NULL COMMENT 'user identifiant',
   `answer_id` int(11) NOT NULL COMMENT 'answer_id',
   `user_answer_date` timestamp NULL DEFAULT NULL COMMENT 'date of answer user',
+  `user_answer_input` text NULL DEFAULT NULL COMMENT 'value to text and number input',
   PRIMARY KEY (`user_answer_id`),
   KEY `user_id_fk` (`user_id`),
   KEY `answer_id_fk` (`answer_id`)
