@@ -12,7 +12,7 @@
 
 /*_________________________HOME__________________________*/
 body{
-  overflow: hidden; /* Hide scrollbars */
+  overflow: auto; /* Hide scrollbars */
 
 }
 

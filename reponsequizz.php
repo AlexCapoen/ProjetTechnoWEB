@@ -1,7 +1,7 @@
 <div class='container'>
 	<?php
-		stockAnswer($_GET['id']);
-		afficherRep($_GET['id']);
+		$answerTab=answerTabCreation($_SESSION['user_id'],$_GET['id']);
+		afficherRep($_GET['id'],$answerTab);
 	?>
 </div>
 

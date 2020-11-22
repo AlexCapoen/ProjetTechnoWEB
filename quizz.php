@@ -1,5 +1,12 @@
 <div class='container'>
   <div id="content">
+  <?php
+    if (isset($_POST['answerQuizz'])){
+      stockAnswer($_GET['id']); // fonction de displayFonctions.php, section : "FONCTIONS ANNEXES"
+      echo('<script>window.location.href="index.php?page=reponse&id='.$_GET['id'].'";</script>)');
+    }
+  ?>
+  
     <?php
     /*Title and content*/
       $quizz = BDD::get()->query('SELECT quizz_name FROM quizz;')->fetchAll();
