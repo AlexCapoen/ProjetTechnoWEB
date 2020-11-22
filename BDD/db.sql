@@ -72,7 +72,7 @@ INSERT INTO `answer` (`answer_id`, `answer_text`, `is_valid_answer`, `answer_que
 (27, 'France', 1, 8),
 (28, 'Etats-unis', 1, 8),
 (29, 'Le Vatican', 0, 8);
-(29501, 'FAKE ANSWER', 0, 0);
+
 
 -- --------------------------------------------------------
 
