@@ -6,6 +6,7 @@
 
 function insertionAnswer($userId,$answerId,$date){        //takes in parameter values that we must insert
   //insert into the db, return the error or 'insert'
+  
 $PDOuser = BDD::get()->prepare('INSERT INTO user_answer VALUES (NULL, :userId, :answerId, :dateSubmit)');
 
 $PDOuser->bindParam(':userId',$userId);
@@ -13,6 +14,7 @@ $PDOuser->bindParam(':answerId',$answerId);
 $PDOuser->bindParam(':dateSubmit',$date);
 
 $PDOuser->execute();
+
 }
 
 
@@ -82,10 +84,7 @@ function comparison($question_id,$answerArray){
   }
 
 
-
- 
-function answerTabCreation($userId,$quizz){
-
+function getDateOfQuizz($userId,$quizz){
   //récupérer les réponses au dernieres réponses du quizz :
 
   $dateList=BDD::get()->query('SELECT user_answer_date FROM user_answer WHERE user_answer.user_id ='.$userId)->fetchAll();
@@ -96,9 +95,14 @@ function answerTabCreation($userId,$quizz){
     $currentDate=$date['user_answer_date'];
     $currentDate=strtotime($date['user_answer_date']);
     $triDate[]=$currentDate;
+
   }
+
   rsort($triDate);
-  $trueDate=$triDate[0];
+
+  $dateOfQuizz = array();
+  $already = FALSE ;
+  $trueDate =NULL;
   foreach ($triDate as $key => $date) {
 
     $dateMin=date("Y-m-d H:i:s", $date);
@@ -106,64 +110,83 @@ function answerTabCreation($userId,$quizz){
     $answerUserArray=BDD::get()->query('SELECT answer_id FROM user_answer WHERE user_answer_date = "'.$dateMin.'"')->fetchAll();
     $questionArray = BDD::get()->query('SELECT question_input_type , question_id FROM question WHERE question.question_quizz_id ='.$quizz)->fetchAll();
     $possibleAnswer=BDD::get()->query('SELECT answer_id FROM answer WHERE answer.answer_question_id ='.$questionArray[0]["question_id"])->fetchAll();
-
     foreach ($answerUserArray as $key => $answerUser) {
       foreach ($possibleAnswer as $key => $possible) {
-        if ($answerUser['answer_id']== $possible['answer_id']){
+        if ($answerUser['answer_id'] == $possible['answer_id']){
+
           $trueDate=$date;
-          break (3);
+          foreach ($dateOfQuizz as $key => $datequizz) {
+            if ($datequizz == $trueDate){
+              $already=TRUE ;
+            }
+          }
+          if ($already == FALSE) {
+            $dateOfQuizz[]=$trueDate; 
+          }
+          $already=FALSE;
+          break (2);
         }
       }
     }
+ 
   }
-  
-  $dateMin=date("Y-m-d H:i:s", $trueDate);
-  
-  $answerUserArray=BDD::get()->query('SELECT answer_id FROM user_answer WHERE user_answer_date = "'.$dateMin.'"')->fetchAll();// toute les réponses de l'utilisateur pour le dernier quizz numero $quizz passé
-  
-  // récupérer les réponses de l'utilisateur par question avec le bon formatage :
+  return($dateOfQuizz);
+  //$dateMin=date("Y-m-d H:i:s", $trueDate);
+}
+ 
+function answerTabCreation($userId,$quizz){
+  $globalAnswerTab=[];
+  $allDate=getDateOfQuizz($userId,$quizz); // récupération de toutes les dates où l'utilisateur a passé un quizz donné
 
-  $questionArray = BDD::get()->query('SELECT question_input_type , question_id FROM question WHERE question.question_quizz_id ='.$quizz)->fetchAll();
-  
-  $answerTab=array();// ce que l on va return, qui sera très semblable à la structure de l ancien POST
-  $answerTab['date']=$dateMin;
+  foreach ($allDate as $key => $dateMin) {
 
-  foreach ($questionArray as $key => $question) {
+    $dateMin=date("Y-m-d H:i:s", $dateMin);
+    $answerUserArray=BDD::get()->query('SELECT answer_id FROM user_answer WHERE user_answer_date = "'.$dateMin.'"')->fetchAll();// toute les réponses de l'utilisateur pour le dernier quizz numero $quizz passé
+    // récupérer les réponses de l'utilisateur par question avec le bon formatage :
 
-    $possibleAnswer=BDD::get()->query('SELECT answer_id FROM answer WHERE answer.answer_question_id ='.$question["question_id"])->fetchAll();//toutes les réponses possible pour une question donnée
+    $questionArray = BDD::get()->query('SELECT question_input_type , question_id FROM question WHERE question.question_quizz_id ='.$quizz)->fetchAll();
     
-    $stringQuestionId='Question'.$question["question_id"].'';
+    $answerTab=array();// ce que l on va formater pour 1 quizz , qui sera très semblable à la structure de l ancien POST
+    $answerTab['date']=$dateMin;
 
-    if($question["question_input_type"]=="input"){
-      $answerTab[$stringQuestionId]="29500";
-    }
-    elseif ($question["question_input_type"]=="checkbox") {
-      $answerCheck=array();
-      foreach ($answerUserArray as $key => $answerUser) {
-        foreach ($possibleAnswer as $key => $possible) {
+    foreach ($questionArray as $key => $question) {
 
-          if ($answerUser['answer_id'] == $possible['answer_id']){
+      $possibleAnswer=BDD::get()->query('SELECT answer_id FROM answer WHERE answer.answer_question_id ='.$question["question_id"])->fetchAll();//toutes les réponses possible pour une question donnée
+      
+      $stringQuestionId='Question'.$question["question_id"].'';
 
-            $answerCheck[]=$answerUser['answer_id'];
+      if($question["question_input_type"]=="input"){
+        $answerTab[$stringQuestionId]="29500";
+      }
+      elseif ($question["question_input_type"]=="checkbox") {
+        $answerCheck=array();
+        foreach ($answerUserArray as $key => $answerUser) {
+          foreach ($possibleAnswer as $key => $possible) {
+
+            if ($answerUser['answer_id'] == $possible['answer_id']){
+
+              $answerCheck[]=$answerUser['answer_id'];
+            }
+          }
+        }
+        $answerTab[$stringQuestionId]=$answerCheck;
+      }
+      else{
+        foreach ($answerUserArray as $key => $answerUser) {
+          foreach ($possibleAnswer as $key => $possible) {
+
+            if ($answerUser['answer_id'] == $possible['answer_id']){
+
+              $answerTab[$stringQuestionId] = $answerUser['answer_id'];
+              break 2;
+            } 
           }
         }
       }
-      $answerTab[$stringQuestionId]=$answerCheck;
     }
-    else{
-      foreach ($answerUserArray as $key => $answerUser) {
-        foreach ($possibleAnswer as $key => $possible) {
-
-          if ($answerUser['answer_id'] == $possible['answer_id']){
-
-            $answerTab[$stringQuestionId] = $answerUser['answer_id'];
-            break 2;
-          } 
-        }
-      }
-    }
+    $globalAnswerTab[]=$answerTab;
   }
-  return($answerTab);
+  return($globalAnswerTab);
 }
 
 
@@ -301,18 +324,14 @@ function printTitleRep($quizzId,$comp,$line,$exactQuestion,$answerTab){
 
 
 
-
-
-
 function afficherRep($quizzId,$answerTab){
   /*args : quizz id of the current quizz we need to display answers
   return : nothing*/
   /*titre et contenu*/
   $userScore=0;
-  $quizz = BDD::get()->query('SELECT quizz_name FROM quizz;')->fetchAll();
-  echo('<div id="content"><div id="titrePage"><h2>Quizz '.$quizz[$quizzId-1]['quizz_name'].'</h2></div>');
+  
   echo('<div id="questionContent">');
-
+  echo('<div class = "dateOfQuizz"> Vous avez passé ce test le : '.$answerTab['date'].'</div>');
   /*question quizz start*/
   $question = BDD::get()->query('SELECT question_id, question_title,question_input_type,question_quizz_id FROM question WHERE question.question_quizz_id = '.$quizzId)->fetchAll();
   $comp=0;/*compteur de question affichées*/
@@ -439,12 +458,9 @@ function afficherRep($quizzId,$answerTab){
   /*question quizz end*/
   /*start submit button*/
   echo('<div id="userScore">Votre score : '.$userScore.'/'.$comp.'</div>');
-  echo('<div class="boutonSubmit"><a href="index.php?page=home"> <input type="submit" value="Home"class="buttonSubmit"></a></div>)');
-  /*end submit button*/
-
+  
   echo("</div>");/*end div questionContent*/
 
-  echo("</div>");/*end div content*/
 }
 
 ?>

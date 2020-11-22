@@ -3,7 +3,8 @@
   <?php
     if (isset($_POST['answerQuizz'])){
       stockAnswer($_GET['id']); // fonction de displayFonctions.php, section : "FONCTIONS ANNEXES"
-      echo('<script>window.location.href="index.php?page=reponse&id='.$_GET['id'].'";</script>)');
+      header("Refresh:0; url=index.php?page=reponse&id=".$_GET['id']);
+      exit();
     }
   ?>
   
@@ -27,9 +28,16 @@
         afficherQuizz($_GET['id'],$todayFormat);
       }
       if (isset($_POST['result'])){
-        $userAnswer = BDD::get()->query('SELECT answer_id FROM user_answer WHERE user_id='.$_SESSION['user_id'])->fetchAll();
-        var_dump($userAnswer);
-        //header('Location: index.php?page=reponse&id='.$_GET['id']);
+        $answerQuizz=answerTabCreation($_SESSION['user_id'],$_GET['id']);
+        if(isset($answerQuizz[0])){
+          header("Refresh:0; url=index.php?page=reponse&id=".$_GET['id']);
+          exit();
+
+        }else{
+          echo('<script>alert("Vous devez avoir répondu aux quizz au moins une fois pour accéder aux résultats !")</script>'); 
+          header("Refresh:0; url=index.php?page=quizz&id=".$_GET['id']);
+          exit();
+        }
       }
     ?>    
   </div>

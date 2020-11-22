@@ -12,7 +12,7 @@
 
 /*_________________________HOME__________________________*/
 body{
-  overflow: auto; /* Hide scrollbars */
+  overflow: hidden; /* Hide scrollbars */
 
 }
 
@@ -516,12 +516,11 @@ border-radius:0.2em;
 #formLogin{ 
 	display : inline-flex;
 	flex-direction : column;
-    background-color : var(--secColor);
-    opacity : 0.7;
+    background-color : var(--colorSite);
 	height: auto;
 	width : auto;
 	padding : 20px;
-	border : 1px solid var(--secColor);
+	border : 1px solid var(--colorSite);
 	border-radius: 10px;
 	align-self : flex-end;
 	color :white;

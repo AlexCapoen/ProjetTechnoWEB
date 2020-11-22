@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `quizz`
+-- Base de données : `quizzDB`
 --
-CREATE DATABASE IF NOT EXISTS `quizz` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `quizz`;
+CREATE DATABASE IF NOT EXISTS `quizzDB` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `quizzDB`;
 
 -- --------------------------------------------------------
 

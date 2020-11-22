@@ -39,7 +39,8 @@ switch ($page) {
         if(isconnected()==1){
             include('quizz.php');
         }else{
-             echo('<script>alert("Connexion requise pour accéder aux quizzs");window.location.href="index.php";</script>');            
+             echo('<script>alert("Connexion requise pour accéder aux quizzs")</script>'); 
+             header("Refresh:0; url=index.php");           
         }
         break;
     case "reponse":
@@ -47,7 +48,8 @@ switch ($page) {
             include('reponsequizz.php');
 
         }else{
-            echo('<script>alert("Connexion requise pour accéder aux réponses des quizzs");window.location.href="index.php";</script>');            
+            echo('<script>alert("Connexion requise pour accéder aux réponses des quizzs")</script>');  
+            header("Refresh:0; url=index.php");          
         }
         break;
     case "login":
