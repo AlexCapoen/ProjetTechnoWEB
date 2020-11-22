@@ -1,9 +1,4 @@
-<div id="content">
 <?php
-    $quizzId=$_GET["id"];
-    $quizz = BDD::get()->query('SELECT quizz_name FROM quizz;')->fetchAll();
-    echo('<div id="titrePage"><h2 id="textTitre">Résumé du Quizz '.$quizz[$quizzId-1]['quizz_name'].'</h2></div>');
-
     function quizzScore($quizzId,$answerTab){
       $userScore=0;
       $question = BDD::get()->query('SELECT question_id, question_title,question_input_type,question_quizz_id FROM question WHERE question_quizz_id = '.$quizzId)->fetchAll();
@@ -79,9 +74,7 @@
           $ScoreTotal+=$returnScore[0];
           $comptUser+=1;
 
-          $userName=[];
-          $userName['user_last_name']=$user['user_last_name'];
-          $userName['user_first_name']=$user['user_first_name'];
+          
 
           $scoreMaxUser=$returnScore[0];
           $dateMax=$returnScore[4];
@@ -89,7 +82,7 @@
           // var_dump($scoreMaxUser);
           // echo('vla les reponse');
 
-          $rankedList[$i]=[$userName,$scoreMaxUser,$dateMax];
+          $rankedList[$i]=[$scoreMaxUser,$user['user_first_name'],$user['user_last_name'],$dateMax];
           $i++;
         }
         
@@ -97,18 +90,36 @@
         
       }
       rsort($rankedList);
-      $BigMean=$ScoreTotal/$comptUser;
+      if($comptUser!=0){
+        $BigMean=$ScoreTotal/$comptUser;
+      }
       return[$BigMean,$comptUser,$rankedList];
 
     }
+    ?>
+<div id="content">
+<?php
+    $quizzId=$_GET["id"];
+    $quizz = BDD::get()->query('SELECT quizz_name FROM quizz;')->fetchAll();
+    echo('<div id="titrePage"><h2 id="textTitre">Résumé du Quizz '.$quizz[$quizzId-1]['quizz_name'].'</h2></div>');
+
 
     //TODO affichage des scores 
-    //$resultUser=resumeScoreQuizzUser($_GET['id'],$_SESSION['user_id']);
+    $resultUser=resumeScoreQuizzUser($_GET['id'],$_SESSION['user_id']);
+    $resultAllUser = resumeScoreQuizzAllUser($_GET['id']);
+    echo('<div id="result_max">votre score max est:'.$resultUser[0] .' sur /' .$resultUser[3].' questions</div>');
+    echo('<div id="result_moy">votre moyenne est :'.$resultUser[1].' en '.$resultUser[2].' tentatives </div>');
+    echo('<div id="result_all_moy">la moyenne des resultats des '.$resultAllUser[1].' joueurs est :'.$resultAllUser[0].'</div>');
+    echo('<table><tr id="table":><td>Nom</td><td>prenom</td><td>score</td><td>date</td></tr>');
+    foreach ($resultAllUser[2] as $key => $line_user) {
+      echo('<tr class="classement_user"><td>'.$line_user[2].'</td><td>'.$line_user[1].'</td><td>'.$line_user[0].'</td><td>'.$line_user[3].'</td></tr>');}
+
+    echo('</table>')
     //$resultUser[0] = score max
     //$resultUser[1] = moyenne du user
     //$resultUser[2] = nombre de quizz du user
     //$resultUser[3] = nombre de question du quizz
-    //$resultAllUser = resumeScoreQuizzAllUser($_GET['id'])
+
     //$resultAllUser[0] = moyenne de tt les users
     //$resultAllUser[1] = nombre de user qui ont rep au quizz
     //$resultAllUser[2] = liste des user quit on rep au quizz ranked selon le resultat
