@@ -6,7 +6,7 @@
 
     function quizzScore($quizzId,$answerTab){
       $userScore=0;
-      $question = BDD::get()->query('SELECT question_id, question_title,question_input_type,question_quizz_id FROM question WHERE question.question_quizz_id = '.$quizzId)->fetchAll();
+      $question = BDD::get()->query('SELECT question_id, question_title,question_input_type,question_quizz_id FROM question WHERE question_quizz_id = '.$quizzId)->fetchAll();
       foreach($question as $key => $Q){
         if(comparison($Q['question_id'],$answerTab)[0]=="Bonne Reponse"){
           $userScore+=1;
@@ -22,12 +22,12 @@
       $scoreActuel = 0;
       $comptQuestion = 0; 
       $mean=0;
-      $question = BDD::get()->query('SELECT question_id, question_title,question_input_type,question_quizz_id FROM question WHERE question.question_quizz_id = '.$quizzId)->fetchAll();
+      $question = BDD::get()->query('SELECT question_id FROM question WHERE question_quizz_id = '.$quizzId)->fetchAll();
       foreach ($question as $key => $ques) {
         $comptQuestion+=1;
       }
-      $answerTabGlobal = answerTabCreation($_SESSION['user_id'],$userId);
-      var_dump($answerTabGlobal);
+      $answerTabGlobal = answerTabCreation($userId,$quizzId);
+      
       if(isset($answerTabGlobal[0])){
         foreach ($answerTabGlobal as $key => $answerTab) {
           $comptQuizz+=1;
@@ -49,12 +49,16 @@
     //var_dump($result);
 
     function resumeScoreQuizzAllUser($quizzId){
-      $userTab = BDD::get()->query('SELECT user_id FROM user ')->fetchAll();
-      //var_dump($userTab);
+      $userTab = BDD::get()->query('SELECT user_id FROM user')->fetchAll();
+      // var_dump($userTab);
       foreach ($userTab as $key => $user) {
         echo($user['user_id']);
         $returnScore=resumeScoreQuizzUser($_GET['id'],$user['user_id']);
-        if($returnScore[0] == 0){
+
+        // echo "return score";
+        // var_dump($returnScore);
+
+        if($returnScore[2] == 0){
           echo('pas de reponse');
         }
         else{
