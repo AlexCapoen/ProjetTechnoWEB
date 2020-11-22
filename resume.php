@@ -22,6 +22,14 @@
       $scoreActuel = 0;
       $comptQuestion = 0; 
       $mean=0;
+
+      $dateMax=BDD::get()->query('SELECT user_answer_date FROM user_answer WHERE user_id = '.$userId)->fetchAll();
+
+      if (isset($dateMax[0])){ //Si il est nul on prend la date la plus récente
+        $dateMax=$dateMax[0][0];
+      }
+      
+
       $question = BDD::get()->query('SELECT question_id FROM question WHERE question_quizz_id = '.$quizzId)->fetchAll();
       foreach ($question as $key => $ques) {
         $comptQuestion+=1;
@@ -35,13 +43,14 @@
           $scoreTot+=$scoreActuel;
           if ($scoreMax < $scoreActuel){
             $scoreMax=$scoreActuel;
+            $dateMax=$answerTab['date']; //date?.
           }
         }
         $mean=$scoreTot/$comptQuizz;
-        return [$scoreMax,$mean,$comptQuizz,$comptQuestion];
+        return [$scoreMax,$mean,$comptQuizz,$comptQuestion,$dateMax];
       }
       else{
-        return [0,0,0,$comptQuestion];
+        return [0,0,0,$comptQuestion,0];
       }
     }
     
@@ -49,23 +58,42 @@
     //var_dump($result);
 
     function resumeScoreQuizzAllUser($quizzId){
-      $userTab = BDD::get()->query('SELECT user_id FROM user')->fetchAll();
+      $rankedList=[];
+      $i=0;
+      $userTab = BDD::get()->query('SELECT user_id,user_last_name, user_first_name FROM user')->fetchAll();
       // var_dump($userTab);
       foreach ($userTab as $key => $user) {
         echo($user['user_id']);
-        $returnScore=resumeScoreQuizzUser($_GET['id'],$user['user_id']);
 
+        $returnScore=resumeScoreQuizzUser($_GET['id'],$user['user_id']);
+        // TODO calcul BigMean
+        
         // echo "return score";
         // var_dump($returnScore);
 
         if($returnScore[2] == 0){
+
           echo('pas de reponse');
         }
-        else{
-          echo('vla les reponse');
+
+        else{ //S'il a déja essayé ! 
+          $userName=[];
+          $userName['user_last_name']=$user['user_last_name'];
+          $userName['user_first_name']=$user['user_first_name'];
+
+          $scoreMaxUser=$returnScore[0];
+          $dateMax=$returnScore[4];
+          // echo 'score';
+          // // var_dump($scoreMaxUser);
+          // echo('vla les reponse');
+
+          $rankedList[$i]=[$userName,$scoreMaxUser,$dateMax];
+          $i++;
         }
         
+        
       }
+      var_dump($rankedList);
 
     }
     resumeScoreQuizzAllUser($_GET['id']);
