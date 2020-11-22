@@ -34,8 +34,8 @@
       foreach ($question as $key => $ques) {
         $comptQuestion+=1;
       }
-      $answerTabGlobal = answerTabCreation($userId,$quizzId);
-      
+      $answerTabGlobal = answerTabCreation($quizzId,$userId);
+      var_dump($answerTabGlobal);
       if(isset($answerTabGlobal[0])){
         foreach ($answerTabGlobal as $key => $answerTab) {
           $comptQuizz+=1;

@@ -3,6 +3,26 @@
 
 //______________________________________________________FONCTIONS ANNEXES_______________________________________________________________________________
 
+function deleteUserAnswerByDate($date){  
+  $PDOuser = BDD::get()->prepare('DELETE FROM user_answer WHERE user_answer_date="'.$date.'"');
+  $PDOuser->execute();
+}
+
+function deleteUserAnswerOfQuizz($userId,$quizzId){  
+  $answerUserArray=BDD::get()->query('SELECT answer_id, user_answer_date FROM user_answer WHERE user_answer.user_id = '.$userId)->fetchAll();
+  $questionArray = BDD::get()->query('SELECT question_input_type , question_id FROM question WHERE question.question_quizz_id ='.$quizzId)->fetchAll();
+  foreach ($questionArray as $key => $question) {
+    $possibleAnswer=BDD::get()->query('SELECT answer_id FROM answer WHERE answer.answer_question_id ='.$question["question_id"])->fetchAll();
+    foreach ($possibleAnswer as $key => $possible) {
+      foreach ($answerUserArray as $key => $answerUser) {
+        if ($answerUser['answer_id'] == $possible['answer_id']){
+          deleteUserAnswerByDate($answerUser['user_answer_date']);
+        }
+      }
+    }
+  }
+}
+
 
 function insertionAnswer($userId,$answerId,$date,$value){        //takes in parameter values that we must insert
   //insert into the db, return the error or 'insert'
