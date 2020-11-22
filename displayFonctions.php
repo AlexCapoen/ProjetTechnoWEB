@@ -31,7 +31,7 @@ function stockAnswer($quizzid){
       }
     }
     elseif ($question['question_input_type'] == 'input'){
-        insertionAnswer($_SESSION['user_id'],1,$_POST['date'],$_POST['Question'.$question['question_id']]);
+        insertionAnswer($_SESSION['user_id'],29501,$_POST['date'],$_POST['Question'.$question['question_id']]);
     }
     else{
       insertionAnswer($_SESSION['user_id'],$_POST['Question'.$question['question_id']],$_POST['date'],NULL);
@@ -48,7 +48,7 @@ function comparison($question_id,$answerArray){
     // $timeSubmit_php = '<script type="text/javascript">document.write(datte);</script>';
 
 
-    $response = BDD::get()->query('SELECT answer_id,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$question_id)->fetchAll();
+    $response = BDD::get()->query('SELECT answer_id,is_valid_answer, answer_text FROM answer WHERE answer.answer_question_id ='.$question_id)->fetchAll();
     $question = BDD::get()->query('SELECT question_input_type , question_id FROM question WHERE question_id ='.$question_id)->fetchAll();
   //count all the possible answer to this question
     $compGoodAns=0;
@@ -72,6 +72,14 @@ function comparison($question_id,$answerArray){
         return ['Bonne Reponse', 'goodAnswer'];
       }
     }
+    if ($question[0]['question_input_type']=='input'){
+      if ($answerArray['Question'.$question[0]['question_id']]==$response[0]['answer_text']){
+        return ['Bonne Reponse', 'goodAnswer'];
+      }else{
+        return ['MauvaiseReponse', 'badAnswer'];
+      }      
+    }
+    
   //General case, with only one good answer possible
 
     $comp=0;
@@ -146,7 +154,7 @@ function answerTabCreation($userId,$quizz){
   foreach ($allDate as $key => $dateMin) {
 
     $dateMin=date("Y-m-d H:i:s", $dateMin);
-    $answerUserArray=BDD::get()->query('SELECT answer_id FROM user_answer WHERE user_answer_date = "'.$dateMin.'"')->fetchAll();// toute les réponses de l'utilisateur pour le dernier quizz numero $quizz passé
+    $answerUserArray=BDD::get()->query('SELECT answer_id, user_answer_input FROM user_answer WHERE user_answer_date = "'.$dateMin.'"')->fetchAll();// toute les réponses de l'utilisateur pour le dernier quizz numero $quizz passé
     // récupérer les réponses de l'utilisateur par question avec le bon formatage :
 
     $questionArray = BDD::get()->query('SELECT question_input_type , question_id FROM question WHERE question.question_quizz_id ='.$quizz)->fetchAll();
@@ -161,7 +169,11 @@ function answerTabCreation($userId,$quizz){
       $stringQuestionId='Question'.$question["question_id"].'';
 
       if($question["question_input_type"]=="input"){
-        $answerTab[$stringQuestionId]="29500";
+        foreach ($answerUserArray as $key => $answer) {
+          if( $answer['answer_id'] =='29501'){
+            $answerTab[$stringQuestionId]=$answer['user_answer_input'];
+          }
+        }
       }
       elseif ($question["question_input_type"]=="checkbox") {
         $answerCheck=array();
@@ -221,9 +233,11 @@ function printTitleRep($quizzId,$comp,$line,$exactQuestion,$answerTab){
 
 
 
+                              //-------------------------------------------------------------//
+                             //   AFFICHAGE DES PAGES UTILSANT LES FONCTIONS PRECEDENTES    //
+                            //-------------------------------------------------------------//
 
 
-//_______________________________________________________________________AFFICHAGE DES PAGES_________________________________________________________________________________
 
 
 
@@ -292,7 +306,7 @@ function printTitleRep($quizzId,$comp,$line,$exactQuestion,$answerTab){
 
         printTitle ($quizzId,$comp,$line,$questionExacte);
 
-        echo('<input id="GET-name" class="input" type="number" name="Question'.$question[$comp-1]['question_id'].'" require>');
+        echo('<input id="GET-name" class="input" type="number" name="Question'.$question[$comp-1]['question_id'].'" required>');
         echo('</div>');
       }
 
@@ -308,7 +322,7 @@ function printTitleRep($quizzId,$comp,$line,$exactQuestion,$answerTab){
         $response = BDD::get()->query('SELECT answer_id,answer_text,is_valid_answer FROM answer WHERE answer.answer_question_id ='.$line['question_id'])->fetchAll();
 
         foreach ($response as $key2 => $answer) {
-          echo('<input type="radio" class="radioElmnt" name="Question'.$question[$comp-1]['question_id'].'" value='.$answer['answer_id'].' class="radio"> <label for="radio" require>'.$answer['answer_text'].'</label> <br/>');
+          echo('<input type="radio" class="radioElmnt" name="Question'.$question[$comp-1]['question_id'].'" value='.$answer['answer_id'].' class="radio"> <label for="radio" required>'.$answer['answer_text'].'</label> <br/>');
         }
 
         echo('</div>');
@@ -336,7 +350,7 @@ function afficherRep($quizzId,$answerTab){
   $userScore=0;
 
   echo('<div id="questionContent">');
-  echo('<div class = "dateOfQuizz"> Vous avez passé ce test le : '.$answerTab['date'].'</div>');
+  echo('<div class = "dateOfQuizz"> Vous avez passé ce quizz le : '.$answerTab['date'].'</div>');// affiche la date à laquelle le test a été passé 
   /*question quizz start*/
   $question = BDD::get()->query('SELECT question_id, question_title,question_input_type,question_quizz_id FROM question WHERE question.question_quizz_id = '.$quizzId)->fetchAll();
   $comp=0;/*compteur de question affichées*/

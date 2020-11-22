@@ -72,6 +72,7 @@ INSERT INTO `answer` (`answer_id`, `answer_text`, `is_valid_answer`, `answer_que
 (27, 'France', 1, 8),
 (28, 'Etats-unis', 1, 8),
 (29, 'Le Vatican', 0, 8);
+(29501, 'FAKE ANSWER', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -94,14 +95,14 @@ CREATE TABLE IF NOT EXISTS `question` (
 --
 
 INSERT INTO `question` (`question_id`, `question_title`, `question_quizz_id`, `question_input_type`) VALUES
-(1, 'Comment s\'appelle cette espece de requin ?', 1, 'carform'),
+(1, 'Comment s\'appelle cette espèce de requin ?', 1, 'carform'),
 (2, 'Combien d\'yeux peuvent avoir les araignées ?', 1, 'checkbox'),
-(3, 'Combien de rhinocéros reste-il en vie ?', 1, 'input'),
-(4, 'De combien de mort sont responsable les moustiques chaque année ?', 1, 'radio'),
+(3, 'Combien de rhinocéros restent-ils en vie ?', 1, 'input'),
+(4, 'De combien de mort sont responsables les moustiques chaque année ?', 1, 'radio'),
 (5, 'Quel était le surnom de Louis XIV ?', 2, 'carform'),
 (6, 'Quel est l\'évènement déclencheur de la 1ère guerre mondiale ?', 2, 'radio'),
 (7, 'En quelle année s\'est déroulée la bataille de Marignan ?', 2, 'input'),
-(8, 'Parmi ces pays lesquels sont considérés comme vainqueur de la 2nd guerre mondiale ?', 2, 'checkbox');
+(8, 'Parmi ces pays lesquels sont considérés comme vainqueur de la seconde guerre mondiale ?', 2, 'checkbox');
 
 -- --------------------------------------------------------
 
