@@ -531,60 +531,78 @@ border-radius:0.2em;
   font-weight: bold;
   transition: 0.5s;
 }
+
+#buttonDelete{
+	position : absolute;
+	top : 20%;
+	right : 3%;
+	font-size: 1.5rem;
+	letter-spacing: 2px;
+	background-color: var(--colorSite);
+	color : white;
+	border: 1px solid var(--colorSite);
+	border-radius: 10px;
+	padding: 5px;
+	transition: 0.5s;
+}
+#buttonDelete:hover{
+	background-color: white;
+	color : var(--colorSite);
+	border: 1px solid var(--colorSite);
+	transition: 0.5s;
+}
 /*_________________________RESUME__________________________*/
+#infoContenair{
+	display :flex;
+	flex-direction: column;
+}
+#infoUser{
+	display :flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items:center;
+	justify-content: space-between;
+	margin-right: 5%;
+	margin-left: 5%;
+}
 
-#result_max{
+.result{
 	color: white;
 	background-color: var(--colorSite);
 	font-size: 1.2rem;
 	letter-spacing: 2px;
-	margin-bottom: 2rem;
-	float:left;
 	padding: 5px;
 	text-decoration: none;
 	border: 3px solid var(--colorSite);
 	border-radius: 10px;
+	margin-bottom : 2rem;
+}
 
-}
-#result_moy{
-	color: white;
-	background-color: var(--colorSite);
-	font-size: 1.2rem;
-	letter-spacing: 2px;
-	margin-left: 0.5rem;
-	float:left;
-	padding: 5px;
-	text-decoration: none;
-	border: 3px solid var(--colorSite);
-	border-radius: 10px;
-}
-#result_all_moy{
-	color: white;
-	background-color: var(--colorSite);
-	font-size: 1.1rem;
-	letter-spacing: 2px;
-	margin-left: 0.5rem;
-	float:left;
-	padding: 5px;
-	text-decoration: none;
-	border: 3px solid var(--colorSite);
-	border-radius: 10px;
-}
 #table{
 	color: white;
 	background-color: var(--colorSite);
 	font-size: 1.2rem;
 	letter-spacing: 2px;
-
 	margin-top: 5rem;
 	padding: 5px;
 	text-decoration: none;
 	border: 3px solid var(--colorSite);
+	border-collapse: separate;
 	border-radius: 10px;
 }
+#classementUser{
+	display: flex;
+	justify-content: center;
+	
+}
+.titreTable{
+	padding : 5px;
+}
 .classement_user{
-		border-color: black;
-
+	border-color: black;
+}
+#score{
+	align-content: center;
 }
 
 /*_________________________LOGIN / REGISTER__________________________*/

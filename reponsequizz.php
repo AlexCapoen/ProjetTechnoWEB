@@ -1,4 +1,5 @@
 <div class='container'>
+	
 	<?php
 		if (isset($_POST['delete'])){
 			deleteUserAnswerOfQuizz($_SESSION['user_id'],$_GET['id']); // fonction de displayFonctions.php, section : "FONCTIONS ANNEXES"
@@ -11,7 +12,7 @@
 		?>
 
 		<form action="index.php?page=reponse&id=<?php echo($_GET['id']);?>" method="post">
-        	<input class="buttonDelete" type="submit" name="delete" value="Réinitialiser mes résultats" />
+        	<input id="buttonDelete" type="submit" name="delete" value="Réinitialiser mes résultats" />
       	</form>
 
 
