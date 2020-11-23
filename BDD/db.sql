@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 23 oct. 2020 à 13:47
+-- Généré le : lun. 23 nov. 2020 à 16:03
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `quizzDB`
+-- Base de données : `quizzdb`
 --
-CREATE DATABASE IF NOT EXISTS `quizzDB` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `quizzDB`;
+CREATE DATABASE IF NOT EXISTS `quizzdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `quizzdb`;
 
 -- --------------------------------------------------------
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `is_valid_answer` tinyint(1) NOT NULL COMMENT 'valid answer for question',
   `answer_question_id` int(11) NOT NULL COMMENT 'question related',
   PRIMARY KEY (`answer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29502 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `answer`
@@ -52,7 +52,6 @@ INSERT INTO `answer` (`answer_id`, `answer_text`, `is_valid_answer`, `answer_que
 (7, '8', 1, 2),
 (8, '10', 1, 2),
 (9, '12', 1, 2),
-(29500, '29 500', 1, 3),
 (11, '900 000', 0, 4),
 (12, '750 000', 1, 4),
 (13, '500 000', 0, 4),
@@ -65,14 +64,15 @@ INSERT INTO `answer` (`answer_id`, `answer_text`, `is_valid_answer`, `answer_que
 (20, 'La France veut reconquérir l\'Alsace et la Lorraine', 0, 6),
 (21, 'Un dérapage de l\'empereur allemand sur les réseaux sociaux', 0, 6),
 (22, 'L\'assassinat de l\'archiduc François Ferdinand à Sarajevo', 1, 6),
-(1515, '1515', 1, 7),
 (24, 'Royaume-Uni', 1, 8),
 (25, 'Italie', 0, 8),
 (26, 'Japon', 0, 8),
 (27, 'France', 1, 8),
 (28, 'Etats-unis', 1, 8),
-(29, 'Le Vatican', 0, 8);
-
+(29, 'Le Vatican', 0, 8),
+(1515, '1515', 1, 7),
+(29500, '29 500', 1, 3),
+(29501, 'FAKE ANSWER', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -141,7 +141,16 @@ CREATE TABLE IF NOT EXISTS `user` (
   `user_birthdate` datetime DEFAULT NULL,
   `user_password` varchar(255) NOT NULL COMMENT 'User Password',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`user_id`, `user_last_name`, `user_first_name`, `user_adress`, `user_phone`, `user_birthdate`, `user_password`) VALUES
+(1, 'ROUX', 'Johan', 'jojo@yopmail.com', '0690546589', '2020-11-27 00:00:00', '$2y$10$mzxrR6EVfIs3tVIRANbVP.zK7JKLaqhsfCMEjNvgalT7qaWahQcaO'),
+(2, 'yjyh', 'yhyèh', 'jpo@yopmail.com', '852', '2020-11-19 00:00:00', '$2y$10$hWvOq.rU3nEJS2co9K7tIeRSFleueWCU4PCg7dxs6LiKmGFN93Sta'),
+(3, 'kjhgfd', 'lhhgr', 'yopam@yopmail.com', '21266', '2020-11-25 00:00:00', '$2y$10$mMslIMgoOL/Tta..llJUTePFJlnhlGayjfMzxxr7bMdfNLINhn/im');
 
 -- --------------------------------------------------------
 
@@ -155,11 +164,53 @@ CREATE TABLE IF NOT EXISTS `user_answer` (
   `user_id` int(11) NOT NULL COMMENT 'user identifiant',
   `answer_id` int(11) NOT NULL COMMENT 'answer_id',
   `user_answer_date` timestamp NULL DEFAULT NULL COMMENT 'date of answer user',
-  `user_answer_input` text NULL DEFAULT NULL COMMENT 'value to text and number input',
+  `user_answer_input` text COMMENT 'value to text and number input',
   PRIMARY KEY (`user_answer_id`),
   KEY `user_id_fk` (`user_id`),
   KEY `answer_id_fk` (`answer_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user_answer`
+--
+
+INSERT INTO `user_answer` (`user_answer_id`, `user_id`, `answer_id`, `user_answer_date`, `user_answer_input`) VALUES
+(1, 1, 16, '2020-11-22 21:31:48', NULL),
+(2, 1, 21, '2020-11-22 21:31:48', NULL),
+(3, 1, 29501, '2020-11-22 21:31:48', '2000'),
+(4, 1, 26, '2020-11-22 21:31:48', NULL),
+(5, 1, 27, '2020-11-22 21:31:48', NULL),
+(6, 1, 28, '2020-11-22 21:31:48', NULL),
+(7, 1, 29, '2020-11-22 21:31:48', NULL),
+(8, 1, 1, '2020-11-22 21:32:58', NULL),
+(9, 1, 6, '2020-11-22 21:32:58', NULL),
+(10, 1, 8, '2020-11-22 21:32:58', NULL),
+(11, 1, 9, '2020-11-22 21:32:58', NULL),
+(12, 1, 29501, '2020-11-22 21:32:58', '24769'),
+(13, 1, 13, '2020-11-22 21:32:58', NULL),
+(14, 1, 1, '2020-11-22 21:33:39', NULL),
+(15, 1, 6, '2020-11-22 21:33:39', NULL),
+(16, 1, 7, '2020-11-22 21:33:39', NULL),
+(17, 1, 29501, '2020-11-22 21:33:39', '4222'),
+(18, 1, 13, '2020-11-22 21:33:39', NULL),
+(19, 1, 1, '2020-11-22 21:48:47', NULL),
+(20, 1, 6, '2020-11-22 21:48:47', NULL),
+(21, 1, 7, '2020-11-22 21:48:47', NULL),
+(22, 1, 8, '2020-11-22 21:48:47', NULL),
+(23, 1, 29501, '2020-11-22 21:48:47', '2555'),
+(24, 1, 13, '2020-11-22 21:48:47', NULL),
+(25, 3, 1, '2020-11-22 22:16:36', NULL),
+(26, 3, 6, '2020-11-22 22:16:36', NULL),
+(27, 3, 29501, '2020-11-22 22:16:36', '5'),
+(28, 3, 13, '2020-11-22 22:16:36', NULL),
+(29, 3, 3, '2020-11-22 23:25:57', NULL),
+(30, 3, 5, '2020-11-22 23:25:57', NULL),
+(31, 3, 6, '2020-11-22 23:25:57', NULL),
+(32, 3, 7, '2020-11-22 23:25:57', NULL),
+(33, 3, 8, '2020-11-22 23:25:57', NULL),
+(34, 3, 9, '2020-11-22 23:25:57', NULL),
+(35, 3, 29501, '2020-11-22 23:25:57', '9999'),
+(36, 3, 13, '2020-11-22 23:25:57', NULL);
 
 --
 -- Contraintes pour les tables déchargées
